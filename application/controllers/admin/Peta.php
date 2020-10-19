@@ -16,8 +16,8 @@ class Peta extends MY_Controller
     {
         $data = [
             'halaman' => 'Peta',
-            'css'     => 'admin/peta/css/view',
             'content' => 'admin/peta/view',
+            'css'     => 'admin/peta/css/view',
             'js'      => 'admin/peta/js/view'
         ];
 

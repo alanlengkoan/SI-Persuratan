@@ -11,9 +11,9 @@ class Konfigurasi_user extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman' => 'Dashboard',
-            'css'     => '',
+            'halaman' => 'Konfigurasi User',
             'content' => 'admin/konfigurasi_user/view',
+            'css'     => '',
             'js'      => ''
         ];
 
