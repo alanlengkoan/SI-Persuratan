@@ -8,21 +8,15 @@
     <link rel="shortcut icon" href="<?= base_url() ?>assets/map.png">
 
     <!-- begin:: css universal -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
     <link rel="icon" href="<?= base_url() ?>assets/images/favicon.ico" type="image/x-icon">
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/bower_components/bootstrap/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/admin/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
-
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/icon/feather/css/feather.css">
-
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/widget.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/bower_components/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/pages/waves/css/waves.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/icon/feather/css/feather.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/widget.css" />
     <!-- end:: css universal -->
 
     <!-- begin:: css local -->
@@ -33,14 +27,15 @@
 </head>
 
 <body>
+    <!-- begin:: loading -->
     <div class="loader-bg">
         <div class="loader-bar"></div>
     </div>
-    <!-- [ Pre-loader ] end -->
+    <!-- end:: loading -->
+
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
-            <!-- [ Header ] start -->
             <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
                     <div class="navbar-logo">
@@ -168,9 +163,7 @@
                     </div>
                 </div>
             </nav>
-            <!-- [ Header ] end -->
 
-            <!-- [ chat user list ] start -->
             <div id="sidebar" class="users p-chat-user showChat">
                 <div class="had-container">
                     <div class="p-fixed users-main">
@@ -242,9 +235,7 @@
                     </div>
                 </div>
             </div>
-            <!-- [ chat user list ] end -->
 
-            <!-- [ chat message ] start -->
             <div class="showChat_inner">
                 <div class="media chat-inner-header">
                     <a class="back_chatBox">
@@ -302,7 +293,7 @@
                     </div>
                 </div>
             </div>
-            <!-- [ chat message ] end -->
+            
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                     <!-- [ navigation menu ] start -->
@@ -1823,10 +1814,8 @@
                     <?php $this->load->view($content); ?>
                     <!-- end:: content -->
 
-                    <!-- [ style Customizer ] start -->
                     <div id="styleSelector">
                     </div>
-                    <!-- [ style Customizer ] end -->
                 </div>
             </div>
         </div>
@@ -1836,21 +1825,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/popper.js/js/popper.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/waves/js/waves.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/waves/js/waves.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.categories.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/chart/float/curvedLines.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.tooltip.min.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/amcharts.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/serial.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/light.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/js/pcoded.min.js"></script>
-    <script src="<?= base_url() ?>assets/admin/assets/js/vertical/vertical-layout.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.categories.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/curvedLines.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/amcharts.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/serial.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/light.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/pcoded.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/vertical/vertical-layout.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/dashboard/custom-dashboard.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/script.min.js"></script>
     <!-- end:: js universal -->

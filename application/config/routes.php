@@ -7,4 +7,3 @@ $route['translate_uri_dashes'] = FALSE;
 
 // untuk admin
 $route['admin'] = 'admin/dashboard';
-$route['admin'] = 'admin/konfigurasi_user';
