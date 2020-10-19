@@ -11,10 +11,11 @@ class Dashboard extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman' => 'Dashboard',
-            'css'     => '',
-            'content' => 'admin/dashboard/view',
-            'js'      => ''
+            'halaman'    => 'Dashboard',
+            'breadcrumb' => breadcrumb(admin_url()),
+            'content'    => 'admin/dashboard/view',
+            'css'        => '',
+            'js'         => ''
         ];
 
         $this->load->view('admin/base', $data);

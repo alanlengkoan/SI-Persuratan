@@ -370,13 +370,57 @@ if (!function_exists('secToTimes')) {
 }
 
 if (!function_exists('base64url_encode')) {
-    function base64url_encode($data) {
-        return rtrim( strtr( base64_encode($data), '+/', '-_' ), '=' );
+    function base64url_encode($data)
+    {
+        return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
     }
 }
 
 if (!function_exists('base64url_decode')) {
-    function base64url_decode($data) {
-        return base64_decode( str_pad( strtr( $data, '-_', '+/' ), strlen($data) % 4, '=', STR_PAD_RIGHT ) );
+    function base64url_decode($data)
+    {
+        return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+    }
+}
+
+if (!function_exists('breadcrumb')) {
+    function breadcrumb($url)
+    {
+        $ci = &get_instance();
+
+        $router   = &load_class('Router');
+        $class    = $router->fetch_class();
+        $function = $router->fetch_method();
+        $params   = $ci->uri->rsegments;
+
+        $result = '';
+        $result .= '<li class="breadcrumb-item">';
+        $result .= '<a href="' . $url . '">';
+        $result .= '<i class="feather icon-home"></i>';
+        $result .= '</a>';
+        $result .= '</li>';
+        if ($function == 'index') {
+            $judul = str_replace('_', ' ', $class);
+
+            $result .= '<li class="breadcrumb-item">';
+            $result .= '<a href="' . $url .  $class . '">';
+            $result .= ucfirst($judul);
+            $result .= '</a>';
+            $result .= '</li>';
+        } else {
+            $count = count($params);
+
+            for ($i = 1; $i <= $count; $i++) {
+                $judul = str_replace('_', ' ', $params[$i]);
+
+                $result .= '<li class="breadcrumb-item">';
+                $result .= '<a href="' . $url . $params[$i] . '">';
+                $result .= ucfirst($judul);
+                $result .= '</a>';
+                $result .= '</li>';
+            }
+        }
+
+        return $result;
     }
 }

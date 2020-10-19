@@ -8,17 +8,7 @@
                           <h4 class="m-b-10"><?= $halaman ?></h4>
                       </div>
                       <ul class="breadcrumb">
-                          <li class="breadcrumb-item">
-                              <a href="index.html">
-                                  <i class="feather icon-home"></i>
-                              </a>
-                          </li>
-                          <li class="breadcrumb-item">
-                              <a href="#!">Basic Components</a>
-                          </li>
-                          <li class="breadcrumb-item">
-                              <a href="#!">Alert</a>
-                          </li>
+                          <?= $breadcrumb ?>
                       </ul>
                   </div>
               </div>

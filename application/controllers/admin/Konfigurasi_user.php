@@ -11,10 +11,11 @@ class Konfigurasi_user extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman' => 'Konfigurasi User',
-            'content' => 'admin/konfigurasi_user/view',
-            'css'     => '',
-            'js'      => ''
+            'halaman'    => 'Konfigurasi User',
+            'breadcrumb' => breadcrumb(admin_url()),
+            'content'    => 'admin/konfigurasi_user/view',
+            'css'        => '',
+            'js'         => ''
         ];
 
         $this->load->view('admin/base', $data);
