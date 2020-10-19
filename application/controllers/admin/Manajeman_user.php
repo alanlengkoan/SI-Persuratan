@@ -11,10 +11,11 @@ class Manajeman_user extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman' => 'Dashboard',
-            'content' => 'admin/manajeman_user/view',
-            'css'     => '',
-            'js'      => ''
+            'halaman'    => 'Manajemen User',
+            'breadcrumb' => breadcrumb(admin_url()),
+            'content'    => 'admin/manajeman_user/view',
+            'css'        => '',
+            'js'         => ''
         ];
 
         $this->load->view('admin/base', $data);

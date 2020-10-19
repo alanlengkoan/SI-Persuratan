@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin | <?= $halaman ?></title>
     <link rel="shortcut icon" href="<?= base_url() ?>assets/map.png">
 
     <!-- begin:: css universal -->
