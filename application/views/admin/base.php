@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | <?= $halaman ?></title>
-    <link rel="shortcut icon" href="<?= base_url() ?>assets/map.png">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/admin/assets/images/favicon.ico">
 
     <!-- begin:: css universal -->
-    <link rel="icon" href="<?= base_url() ?>assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" />
@@ -94,7 +93,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="img-radius" src="../files/assets/images/avatar-3.jpg" alt="Generic placeholder image">
+                                                <img class="img-radius" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRRoWrihcOLGik2xRG96dL0F4HjA71lPywi2w&usqp=CAU" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Joseph William</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
