@@ -14,13 +14,14 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/bower_components/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/pages/waves/css/waves.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/icon/feather/css/feather.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/widget.css" />
     <!-- end:: css universal -->
 
     <!-- begin:: css local -->
     <?php empty($css) ? '' : $this->load->view($css); ?>
     <!-- end:: css local -->
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/widget.css" />
 
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery/js/jquery.min.js"></script>
 </head>
@@ -352,25 +353,18 @@
     </div>
 
     <!-- begin:: js universal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/popper.js/js/popper.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/waves/js/waves.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.categories.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/curvedLines.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/chart/float/jquery.flot.tooltip.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/amcharts.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/serial.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/light.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/pcoded.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/vertical/vertical-layout.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/dashboard/custom-dashboard.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/script.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- end:: js universal -->
 
     <!-- begin:: js local -->

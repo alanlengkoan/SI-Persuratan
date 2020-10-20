@@ -45,9 +45,17 @@
                                           <div class="form-group row">
                                               <label class="col-sm-2 col-form-label">Pilih User Profil</label>
                                               <div class="col-sm-6">
-                                                  <select class="js-example-basic-single form-control">
-                                                      <option value="">select2 </option>
-                                                  </select>
+                                                    <select class="js-example-basic-single col-sm-12">
+                                                        <optgroup label="Developer">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </optgroup>
+                                                        <optgroup label="Designer">
+                                                            <option value="WY">Peter</option>
+                                                            <option value="WY">Hanry Die</option>
+                                                            <option value="WY">John Doe</option>
+                                                        </optgroup>
+                                                    </select>
                                               </div>
 
                                           </div>
