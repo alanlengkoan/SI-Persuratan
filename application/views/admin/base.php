@@ -157,7 +157,6 @@
 
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
-                    <!-- [ navigation menu ] start -->
                     <nav class="pcoded-navbar">
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
