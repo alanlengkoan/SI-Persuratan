@@ -43,28 +43,29 @@ class Auth extends CI_Controller
     // untuk mengecek data username dan password
     public function auth($username, $password)
     {
-        $user = $this->db->get_where('tb_users', ['username' => $username]);
+        $user = $this->db->get_where('users', ['username' => $username]);
 
         $count = $user->result();
 
         if (count($count) >= 1) {
             $row = $user->row_array();
 
-            if (password_verify($password, $row['password'])) {
-                if ($row['role'] == 'admin') {
+            if ($row['status_aktif'] == 1) {
+                if (password_verify($password, $row['password'])) {
                     $data = [
-                        'id'       => $row['id'],
+                        'id'       => $row['id_users'],
                         'username' => $row['username'],
                         'password' => $password,
-                        'role'     => $row['role'],
                     ];
 
                     $this->session->set_userdata($data);
 
-                    redirect(admin_url(). 'dashboard?&berhasil');
+                    redirect(admin_url());
+                } else {
+                    echo "username atau password Anda salah!";
                 }
             } else {
-                echo "username atau password Anda salah!";
+                echo "maaf akun Anda tidak aktif silahkan hubungi Admin";
             }
         } else {
             echo "tidak ada";
@@ -78,7 +79,6 @@ class Auth extends CI_Controller
             'id'       => '',
             'username' => '',
             'password' => '',
-            'role'     => '',
         ];
         $this->session->unset_userdata($session_data);
         $this->session->sess_destroy();
