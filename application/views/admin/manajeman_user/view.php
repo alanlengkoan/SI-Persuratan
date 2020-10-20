@@ -43,6 +43,15 @@
                                               </div>
                                           </div>
                                           <div class="form-group row">
+                                              <label class="col-sm-2 col-form-label">Pilih User Profil</label>
+                                              <div class="col-sm-6">
+                                                  <select class="js-example-basic-single form-control">
+                                                      <option value="">select2 </option>
+                                                  </select>
+                                              </div>
+
+                                          </div>
+                                          <div class="form-group row">
                                               <label class="col-sm-2 col-form-label">Password</label>
                                               <div class="col-sm-6">
                                                   <input type="text" class="form-control" name="password" id="password" placeholder="Password">
