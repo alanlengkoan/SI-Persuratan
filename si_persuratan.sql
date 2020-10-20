@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 20 Okt 2020 pada 20.59
+-- Generation Time: 20 Okt 2020 pada 21.19
 -- Versi Server: 10.1.44-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `asal_surat` (
   `id_asal_surat` int(11) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `alamat` text NOT NULL,
-  `keterangan` text NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `alamat` text,
+  `keterangan` text,
   `ins` datetime NOT NULL,
-  `ins_id` int(11) NOT NULL,
+  `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `upd_id` int(11) NOT NULL
+  `upd_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -45,13 +45,13 @@ CREATE TABLE `asal_surat` (
 
 CREATE TABLE `sifat_surat` (
   `id_sifat_surat` int(11) NOT NULL,
-  `kd` varchar(10) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `keterangan` text NOT NULL,
+  `kd` varchar(10) DEFAULT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `keterangan` text,
   `ins` datetime NOT NULL,
-  `ins_id` int(11) NOT NULL,
+  `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `upd_id` int(11) NOT NULL
+  `upd_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -110,13 +110,13 @@ CREATE TABLE `surat_masuk` (
 
 CREATE TABLE `tujuan_surat` (
   `id_tujuan_surat` int(11) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `alamat` text NOT NULL,
-  `keterangan` text NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `alamat` text,
+  `keterangan` text,
   `ins` datetime NOT NULL,
-  `ins_id` int(11) NOT NULL,
+  `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `upd_id` int(11) NOT NULL
+  `upd_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -127,26 +127,26 @@ CREATE TABLE `tujuan_surat` (
 
 CREATE TABLE `users` (
   `id_users` bigint(20) UNSIGNED NOT NULL,
-  `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telepon` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hak_akses` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_akktif` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telepon` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foto` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` text COLLATE utf8mb4_unicode_ci,
+  `hak_akses` text COLLATE utf8mb4_unicode_ci,
+  `status_aktif` enum('0','1') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ins` datetime NOT NULL,
-  `ins_id` int(11) NOT NULL,
+  `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `upd_id` int(11) NOT NULL
+  `upd_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_users`, `nama`, `email`, `telepon`, `foto`, `username`, `password`, `hak_akses`, `status_akktif`, `ins`, `ins_id`, `upd`, `upd_id`) VALUES
-(1, 'Muhammad Iqbal', 'muhammadiqbal@gmail.com', '1234567890', 'aku', '$2y$10$VIFuRrkCQS5RGc4Iaidm.u7BIc.FU8vH5jgQ4x4HaY5', 'admin', '', '0', '0000-00-00 00:00:00', 0, '2020-10-20 12:37:12', 0);
+INSERT INTO `users` (`id_users`, `nama`, `email`, `telepon`, `foto`, `username`, `password`, `hak_akses`, `status_aktif`, `ins`, `ins_id`, `upd`, `upd_id`) VALUES
+(1, 'Muhammad Iqbal', 'muhammadiqbal@gmail.com', '1234567890', NULL, 'aku', '$2y$10$VIFuRrkCQS5RGc4Iaidm.u7BIc.FU8vH5jgQ4x4HaY5sz.6Sc4sAu', NULL, '1', '0000-00-00 00:00:00', 0, '2020-10-20 12:37:12', 0);
 
 --
 -- Indexes for dumped tables
