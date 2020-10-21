@@ -14,8 +14,8 @@ class Manajeman_user extends MY_Controller
             'halaman'    => 'Manajemen User',
             'breadcrumb' => breadcrumb(admin_url()),
             'content'    => 'admin/manajeman_user/view',
-            'css'        => 'admin/manajeman_user/css/css',
-            'js'         => 'admin/manajeman_user/js/js',
+            'css'        => 'admin/manajeman_user/css/view',
+            'js'         => 'admin/manajeman_user/js/view',
         ];
 
         $this->load->view('admin/base', $data);

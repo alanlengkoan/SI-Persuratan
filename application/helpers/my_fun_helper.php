@@ -423,4 +423,83 @@ if (!function_exists('breadcrumb')) {
 
         return $result;
     }
+
+    // NOTE Create Users
+    function open_parent_head_new($null, $text_menu)
+    {
+        $html = '<li>' . $text_menu . '
+      <ul>';
+        return $html;
+    }
+    function close_parent_head_new()
+    {
+        $html = '</ul></li>';
+        return $html;
+    }
+    function open_parent_head_new_1($text_menu)
+    {
+        $html = '<li>' . $text_menu . '
+      <ul>';
+        return $html;
+    }
+    function close_parent_head_new_1()
+    {
+        $html = '</ul></li>';
+        return $html;
+    }
+
+    function child_new($null, $text_menu, $id, $null1)
+    {
+        $html = '<li id="' . $id . '">' . $text_menu . '</li>';
+        return $html;
+    }
+
+    // NOTE Edit 
+    function open_parent_head_edit($null, $text_menu)
+    {
+        $html = '<li>' . $text_menu . '
+      <ul>';
+        return $html;
+    }
+
+    function close_parent_head_edit()
+    {
+        $html = '</ul></li>';
+        return $html;
+    }
+
+    function open_parent_head_edit_1($text_menu)
+    {
+        $html = '<li>' . $text_menu . '
+      <ul>';
+        return $html;
+    }
+
+    function close_parent_head_edit_1()
+    {
+        $html = '</ul></li>';
+        return $html;
+    }
+
+    function child_edit($menu_akses, $text_menu, $id, $null1)
+    {
+        if (in_array($id, $menu_akses)) {
+            $html = '<li data-checkstate="checked" id="' . $id . '">' . $text_menu . '</li>';
+        } else {
+            $html = '<li id="' . $id . '">' . $text_menu . '</li>';
+        }
+
+        return $html;
+    }
+
+    // NOTE Validasi dan Menarik data Hak Akses Users
+    function akses_menu($menu_akses, $data_menu)
+    {
+        if (in_array($data_menu, $menu_akses)) {
+            $result = "data-checkstate='checked'";
+        } else {
+            $result =  "";
+        }
+        return $result;
+    }
 }
