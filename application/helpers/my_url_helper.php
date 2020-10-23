@@ -26,7 +26,7 @@ if ( ! function_exists('admin_url'))
     function admin_url($url = NULL)
     {
         $link = ($url)? '/'.$url : '';
-        return site_url('admin/').$link;
+        return site_url('admin').$link;
     }
 }
 
@@ -36,7 +36,7 @@ if ( ! function_exists('home_url'))
     function home_url($url = NULL)
     {
         $link = ($url)? '/'.$url : '';
-        return site_url('home/').$link;
+        return site_url('home').$link;
     }
 }
 
