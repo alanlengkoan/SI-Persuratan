@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 20 Okt 2020 pada 21.19
+-- Generation Time: 24 Okt 2020 pada 00.07
 -- Versi Server: 10.1.44-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `asal_surat` (
   `id_asal_surat` int(11) NOT NULL,
+  `kd` varchar(10) NOT NULL,
   `nama` varchar(50) DEFAULT NULL,
   `alamat` text,
   `keterangan` text,
@@ -35,6 +36,57 @@ CREATE TABLE `asal_surat` (
   `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `upd_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `golongan`
+--
+
+CREATE TABLE `golongan` (
+  `id_golongan` int(11) NOT NULL,
+  `kd` varchar(10) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `keterangan` text NOT NULL,
+  `ins` int(11) NOT NULL,
+  `ins_id` datetime NOT NULL,
+  `upd` int(11) NOT NULL,
+  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `instansi`
+--
+
+CREATE TABLE `instansi` (
+  `id_instansi` int(11) NOT NULL,
+  `kd` varchar(10) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `keterangan` text NOT NULL,
+  `ins` int(11) NOT NULL,
+  `ins_id` datetime NOT NULL,
+  `upd` int(11) NOT NULL,
+  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jabatan`
+--
+
+CREATE TABLE `jabatan` (
+  `id_jabatan` int(11) NOT NULL,
+  `kd` varchar(10) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `keterangan` text NOT NULL,
+  `ins` int(11) NOT NULL,
+  `ins_id` datetime NOT NULL,
+  `upd` int(11) NOT NULL,
+  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -70,6 +122,7 @@ CREATE TABLE `surat_keluar` (
   `tanggal_keluar` date NOT NULL,
   `perihal` text NOT NULL,
   `ringkasan` text NOT NULL,
+  `isi_surat` text NOT NULL,
   `keterangan` text NOT NULL,
   `arsip` varchar(30) NOT NULL,
   `ins` datetime NOT NULL,
@@ -94,6 +147,7 @@ CREATE TABLE `surat_masuk` (
   `tanggal_masuk` date NOT NULL,
   `perihal` text NOT NULL,
   `ringkasan` text NOT NULL,
+  `isi_surat` text NOT NULL,
   `keterangan` text NOT NULL,
   `arsip` varchar(30) NOT NULL,
   `ins` int(11) NOT NULL,
@@ -105,11 +159,38 @@ CREATE TABLE `surat_masuk` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `surat_masuk_manual`
+--
+
+CREATE TABLE `surat_masuk_manual` (
+  `id_surat_masuk_manual` int(11) NOT NULL,
+  `no_agenda` varchar(30) NOT NULL,
+  `no_surat` varchar(30) NOT NULL,
+  `asal_surat` int(11) NOT NULL,
+  `sifat_surat` int(11) NOT NULL,
+  `tanggal_surat` date NOT NULL,
+  `tanggal_masuk` date NOT NULL,
+  `tanggal_kirim` date NOT NULL,
+  `perihal` text NOT NULL,
+  `ringkasan` text NOT NULL,
+  `isi_surat` text NOT NULL,
+  `keterangan` text NOT NULL,
+  `arsip` varchar(30) NOT NULL,
+  `ins` int(11) NOT NULL,
+  `ins_id` datetime NOT NULL,
+  `upd` int(11) NOT NULL,
+  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tujuan_surat`
 --
 
 CREATE TABLE `tujuan_surat` (
   `id_tujuan_surat` int(11) NOT NULL,
+  `kd` varchar(10) NOT NULL,
   `nama` varchar(50) DEFAULT NULL,
   `alamat` text,
   `keterangan` text,
@@ -128,13 +209,11 @@ CREATE TABLE `tujuan_surat` (
 CREATE TABLE `users` (
   `id_users` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telepon` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `foto` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` text COLLATE utf8mb4_unicode_ci,
   `hak_akses` text COLLATE utf8mb4_unicode_ci,
   `status_aktif` enum('0','1') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `ins` datetime NOT NULL,
   `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -145,8 +224,28 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_users`, `nama`, `email`, `telepon`, `foto`, `username`, `password`, `hak_akses`, `status_aktif`, `ins`, `ins_id`, `upd`, `upd_id`) VALUES
-(1, 'Muhammad Iqbal', 'muhammadiqbal@gmail.com', '1234567890', NULL, 'aku', '$2y$10$VIFuRrkCQS5RGc4Iaidm.u7BIc.FU8vH5jgQ4x4HaY5sz.6Sc4sAu', NULL, '1', '0000-00-00 00:00:00', 0, '2020-10-20 12:37:12', 0);
+INSERT INTO `users` (`id_users`, `nama`, `username`, `password`, `hak_akses`, `status_aktif`, `url`, `ins`, `ins_id`, `upd`, `upd_id`) VALUES
+(1, 'Muhammad Iqbal', 'aku', '$2y$10$VIFuRrkCQS5RGc4Iaidm.u7BIc.FU8vH5jgQ4x4HaY5sz.6Sc4sAu', NULL, '1', '', '0000-00-00 00:00:00', 0, '2020-10-20 12:37:12', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users_profil`
+--
+
+CREATE TABLE `users_profil` (
+  `id_users_profil` int(11) NOT NULL,
+  `id_users` int(11) NOT NULL,
+  `id_instansi` int(11) NOT NULL,
+  `id_jabatan` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telepon` varchar(15) NOT NULL,
+  `foto` varchar(50) NOT NULL,
+  `ins` datetime NOT NULL,
+  `ins_id` int(11) NOT NULL,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `upd_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -157,6 +256,24 @@ INSERT INTO `users` (`id_users`, `nama`, `email`, `telepon`, `foto`, `username`,
 --
 ALTER TABLE `asal_surat`
   ADD PRIMARY KEY (`id_asal_surat`);
+
+--
+-- Indexes for table `golongan`
+--
+ALTER TABLE `golongan`
+  ADD PRIMARY KEY (`id_golongan`);
+
+--
+-- Indexes for table `instansi`
+--
+ALTER TABLE `instansi`
+  ADD PRIMARY KEY (`id_instansi`);
+
+--
+-- Indexes for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`id_jabatan`);
 
 --
 -- Indexes for table `sifat_surat`
@@ -181,6 +298,14 @@ ALTER TABLE `surat_masuk`
   ADD KEY `sifat_surat` (`sifat_surat`);
 
 --
+-- Indexes for table `surat_masuk_manual`
+--
+ALTER TABLE `surat_masuk_manual`
+  ADD PRIMARY KEY (`id_surat_masuk_manual`),
+  ADD KEY `asal_surat` (`asal_surat`),
+  ADD KEY `sifat_surat` (`sifat_surat`);
+
+--
 -- Indexes for table `tujuan_surat`
 --
 ALTER TABLE `tujuan_surat`
@@ -191,6 +316,15 @@ ALTER TABLE `tujuan_surat`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`) USING BTREE;
+
+--
+-- Indexes for table `users_profil`
+--
+ALTER TABLE `users_profil`
+  ADD PRIMARY KEY (`id_users_profil`),
+  ADD KEY `id_users` (`id_users`),
+  ADD KEY `id_instansi` (`id_instansi`),
+  ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -227,23 +361,10 @@ ALTER TABLE `tujuan_surat`
 ALTER TABLE `users`
   MODIFY `id_users` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- AUTO_INCREMENT for table `users_profil`
 --
-
---
--- Ketidakleluasaan untuk tabel `surat_keluar`
---
-ALTER TABLE `surat_keluar`
-  ADD CONSTRAINT `sifat_surat_keluar` FOREIGN KEY (`sifat_surat`) REFERENCES `sifat_surat` (`id_sifat_surat`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tujuan_surat_keluar` FOREIGN KEY (`tujuan_surat`) REFERENCES `tujuan_surat` (`id_tujuan_surat`) ON DELETE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `surat_masuk`
---
-ALTER TABLE `surat_masuk`
-  ADD CONSTRAINT `asal_surat_masuk` FOREIGN KEY (`asal_surat`) REFERENCES `asal_surat` (`id_asal_surat`) ON DELETE CASCADE,
-  ADD CONSTRAINT `sifat_surat_masuk` FOREIGN KEY (`sifat_surat`) REFERENCES `sifat_surat` (`id_sifat_surat`) ON DELETE CASCADE;
-
+ALTER TABLE `users_profil`
+  MODIFY `id_users_profil` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
