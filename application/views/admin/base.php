@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | <?= $halaman ?></title>
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/admin/assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= assets_url() ?>admin/assets/images/favicon.ico">
 
     <!-- begin:: css universal -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/bower_components/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/pages/waves/css/waves.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/icon/feather/css/feather.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/bower_components/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/pages/waves/css/waves.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/feather/css/feather.css" />
     <!-- end:: css universal -->
 
     <!-- begin:: css local -->
     <?php empty($css) ? '' : $this->load->view($css); ?>
     <!-- end:: css local -->
 
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/assets/css/widget.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/css/widget.css" />
 
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/jquery/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                             <i class="feather icon-toggle-right"></i>
                         </a>
                         <a href="<?= admin_url() ?>">
-                            <img class="img-fluid" src="<?= base_url() ?>assets/admin/assets/images/logo.png" alt="Theme-Logo" />
+                            <img class="img-fluid" src="<?= assets_url() ?>admin/assets/images/logo.png" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options waves-effect waves-light">
                             <i class="feather icon-more-horizontal"></i>
@@ -353,17 +353,17 @@
     </div>
 
     <!-- begin:: js universal -->
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/popper.js/js/popper.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/waves/js/waves.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/amcharts.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/serial.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/pages/widget/amchart/light.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/pcoded.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/vertical/vertical-layout.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/admin/assets/js/script.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/popper.js/js/popper.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/waves/js/waves.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/widget/amchart/amcharts.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/widget/amchart/serial.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/widget/amchart/light.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/pcoded.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/vertical/vertical-layout.min.js"></script>
+    <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/script.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- end:: js universal -->
 
