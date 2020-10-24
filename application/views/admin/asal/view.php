@@ -24,7 +24,7 @@
                                 <div class="card-header">
                                     <!-- begin:: tombol tambah data -->
                                     <button class="btn btn-success btn-sm">
-                                        test
+                                        Tambah
                                     </button>
                                     <!-- end:: tombol tambah data -->
                                 </div>
