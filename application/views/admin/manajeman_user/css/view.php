@@ -1,2 +1,0 @@
-<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/bower_components/select2/css/select2.min.css" />
-<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/admin/menu_otoritas/jstree/dist/themes/default/style.min.css" />
