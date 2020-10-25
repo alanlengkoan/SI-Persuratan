@@ -6,6 +6,7 @@ class Manajemen_user extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('m_manajemen_user');
     }
 
     public function index()
