@@ -25,35 +25,27 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" name="this_form" id="this_form">
+                                        <!-- begin:: input hidden -->
+                                        <input type="hidden" id="id_user_level" name="id_user_level" value="<?= $edit_data['id_level'] ?>" />
+                                        <input type="hidden" id="akses_menu" name="akses_menu" />
+                                        <!-- end:: input hidden -->
+
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label" for="">Level</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="level" id="level" value="<?= $edit_data['level'] ?>" class="form-control">
+                                            <label class="col-sm-4 col-form-label" for="">Level *</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" name="level" id="level" value="<?= $edit_data['level'] ?>" class="form-control" required="required">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label" for="">Deskripsi</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="deskripsi" id="deskripsi" value="<?= $edit_data['deskripsi'] ?>" class="form-control">
+                                            <label class="col-sm-4 col-form-label" for="">Deskripsi *</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" name="deskripsi" id="deskripsi" value="<?= $edit_data['deskripsi'] ?>" class="form-control" required="required">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label"></label>
-                                            <div class="col-sm-4">
-                                                <input type="hidden" id="akses_menu" name="akses_menu" class="form-control">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="hidden" id="id_user_level" name="id_user_level" value="<?= $edit_data['id_level'] ?>" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2"></label>
-                                            <div class="col-sm-10">
-                                                <button name="submit" id="submit" class="btn btn-sm btn-primary m-b-0">
-                                                    <i class="icon-check2"></i> Submit
-                                                </button>
-                                            </div>
-                                        </div>
+
+                                        <button name="submit" id="submit" class="btn btn-sm btn-primary m-b-0">
+                                            <i class="fa fa-plus"></i> Submit
+                                        </button>
                                     </form>
 
                                 </div>
@@ -91,11 +83,11 @@
                                         <table id="dt-post" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th class="center">No</th>
-                                                    <th class="center">Level</th>
-                                                    <th class="center">Deskripsi</th>
-                                                    <th class="center">Hak Akses</th>
-                                                    <th class="center">Aksi</th>
+                                                    <th>No</th>
+                                                    <th>Level</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Hak Akses</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -104,13 +96,13 @@
                                                 foreach ($profil as $dt) { ?>
 
                                                     <tr>
-                                                        <td class="center"><?= $a++ ?></td>
-                                                        <td class="center"><?= $dt->level ?></td>
-                                                        <td class="center"><?= $dt->deskripsi ?></td>
-                                                        <td class="center"><?= $dt->hak_akses ?></td>
-                                                        <td class="center">
-                                                            <a href="<?= admin_url() ?>/profil_user/edit?id=<?= $dt->id_users_level ?>" class="btn btn-sm m-b-0">
-                                                                <i class="fa fa-pencil-square-o"></i>
+                                                        <td><?= $a++ ?></td>
+                                                        <td><?= $dt->level ?></td>
+                                                        <td><?= $dt->deskripsi ?></td>
+                                                        <td><?= $dt->hak_akses ?></td>
+                                                        <td>
+                                                            <a href="<?= admin_url() ?>/profil_user/edit?id=<?= $dt->id_users_level ?>" class="btn btn-primary btn-sm">
+                                                                <i class="fa fa-edit"></i> Edit
                                                             </a>
                                                         </td>
                                                     </tr>
