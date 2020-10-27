@@ -403,7 +403,7 @@ if (!function_exists('breadcrumb')) {
             $judul = str_replace('_', ' ', $class);
 
             $result .= '<li class="breadcrumb-item">';
-            $result .= '<a href="' . $url .  $class . '">';
+            $result .= '<a href="' . $url . '/' .  $class . '">';
             $result .= ucfirst($judul);
             $result .= '</a>';
             $result .= '</li>';
@@ -414,7 +414,7 @@ if (!function_exists('breadcrumb')) {
                 $judul = str_replace('_', ' ', $params[$i]);
 
                 $result .= '<li class="breadcrumb-item">';
-                $result .= '<a href="' . $url . $params[$i] . '">';
+                $result .= '<a href="' . $url . '/' . $params[$i] . '">';
                 $result .= ucfirst($judul);
                 $result .= '</a>';
                 $result .= '</li>';

@@ -23,8 +23,8 @@
                             <div class="card">
                                 <div class="card-header">
                                     <!-- begin:: tombol tambah data -->
-                                    <button class="btn btn-success btn-sm">
-                                        Tambah
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-input" class="btn btn-success btn-sm">
+                                        <i class="fa fa-plus"></i> Tambah
                                     </button>
                                     <!-- end:: tombol tambah data -->
                                 </div>
@@ -227,6 +227,78 @@
 
         <div id="styleSelector">
 
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-input" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">NIP</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nip" id="nip" placeholder="NIP">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">User Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="User Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih User Profil</label>
+                        <div class="col-sm-10">
+                            <select class="js-example-basic-single" style="width: 100%;">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Instansi</label>
+                        <div class="col-sm-10">
+                            <select class="js-example-basic-single" style="width: 100%;">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Jabatan</label>
+                        <div class="col-sm-10">
+                            <select class="js-example-basic-single" style="width: 100%;">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Repeat Password</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
