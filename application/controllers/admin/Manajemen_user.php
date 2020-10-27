@@ -14,6 +14,7 @@ class Manajemen_user extends MY_Controller
         $data = [
             'halaman'    => 'Manajemen User',
             'breadcrumb' => breadcrumb(admin_url()),
+            'data_user'  => $this->m_manajemen_user->data_user(),
             'content'    => 'admin/manajemen_user/view',
             'css'        => 'admin/manajemen_user/css/view',
             'js'         => 'admin/manajemen_user/js/view',

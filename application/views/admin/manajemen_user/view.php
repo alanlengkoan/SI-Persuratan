@@ -97,13 +97,14 @@
                                                         <input type="text" class="form-control" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2"></label>
-                                                    <div class="col-sm-10">
-                                                        <button type="submit" class="btn btn-sm btn-primary m-b-0">Submit</button>
-                                                    </div>
-                                                </div>
+
                                             </form>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2"></label>
+                                                <div class="col-sm-10">
+                                                    <button type="submit" class="btn btn-sm btn-primary m-b-0">Submit</button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <!-- manajemen_user card end-->
                                     </div>
@@ -119,17 +120,30 @@
                                                 <table id="dom-jqry" class="table table-striped table-bordered nowrap">
                                                     <thead>
                                                         <tr>
-                                                            <th class="center">Status</th>
-                                                            <th class="center">NIP</th>
-                                                            <th class="center">User Name</th>
-                                                            <th class="center">Profil</th>
-                                                            <th class="center">Nama</th>
-                                                            <th class="center">Jabatan</th>
-                                                            <th class="center">Instansi</th>
+                                                            <th>Status</th>
+
+                                                            <th>User Name</th>
+                                                            <th>Profil</th>
+                                                            <th>Nama</th>
+                                                            <th>Jabatan</th>
+                                                            <th>Instansi</th>
+                                                            <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                        <?php foreach ($data_user as $dt) { ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" class="js-single" <?= $dt->status_aktif == "1" ? 'checked' : '' ?> onchange="update_status('<?= $dt->id_users ?>')" />
+                                                                </td>
+                                                                <td><?= $dt->username ?></td>
+                                                                <td><?= $dt->id_profil ?></td>
+                                                                <td><?= $dt->nama ?></td>
+                                                                <td><?= $dt->id_jabatan ?></td>
+                                                                <td><?= $dt->id_instansi ?></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        <?php } ?>
                                                     </tbody>
                                                 </table>
                                             </div>
