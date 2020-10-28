@@ -6,7 +6,11 @@ class Profil_user extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        // untuk load model
         $this->load->model('m_profil');
+
+        // untuk cek session
+        checking_session($this->session->userdata());
     }
 
     public function index()
