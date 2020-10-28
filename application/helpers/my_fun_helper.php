@@ -16,6 +16,29 @@ if (!function_exists('acak_id')) {
     }
 }
 
+// fungsi untuk kode otomatis
+if (!function_exists('acakgetKodeOtomatis_id')) {
+    function getKodeOtomatis($tabel, $kd)
+    {
+        $CI  = get_instance();
+        $qry = $CI->crud->ca($tabel);
+        $y   = date('y');
+        $m   = date('m');
+        if ($qry > 0) {
+            if (date('d') != 01) {
+                $nilkod = substr($qry[0], 1);
+                $kode   = (int) $nilkod;
+                $kode   = $qry + 1;
+                return "{$kd}{$m}{$y}{$kode}";
+            } else {
+                return "{$kd}{$m}{$y}1";
+            }
+        } else {
+            return "{$kd}{$m}{$y}1";
+        }
+    }
+}
+
 if (!function_exists('waktu')) {
     function waktu($wkt)
     {

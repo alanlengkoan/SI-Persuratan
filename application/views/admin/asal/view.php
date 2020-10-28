@@ -23,8 +23,8 @@
                             <div class="card">
                                 <div class="card-header">
                                     <!-- begin:: tombol tambah data -->
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-input" class="btn btn-success btn-sm">
-                                        <i class="fa fa-plus"></i> Tambah
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-input" data-backdrop="static" data-keyboard="false" class="btn btn-success btn-sm">
+                                        <i class="fa fa-plus"></i>&nbsp;Tambah
                                     </button>
                                     <!-- end:: tombol tambah data -->
                                 </div>
@@ -34,186 +34,29 @@
                                         <table id="simpletable" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>No.</th>
+                                                    <th>Aksi</th>
+                                                    <th>Kode</th>
+                                                    <th>Nama</th>
+                                                    <th>Alamat</th>
+                                                    <th>Keterangan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Garrett Winters</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>63</td>
-                                                    <td>2011/07/25</td>
-                                                    <td>$170,750</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ashton Cox</td>
-                                                    <td>Junior Technical Author</td>
-                                                    <td>San Francisco</td>
-                                                    <td>66</td>
-                                                    <td>2009/01/12</td>
-                                                    <td>$86,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>22</td>
-                                                    <td>2012/03/29</td>
-                                                    <td>$433,060</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Airi Satou</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>33</td>
-                                                    <td>2008/11/28</td>
-                                                    <td>$162,700</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Brielle Williamson</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>New York</td>
-                                                    <td>61</td>
-                                                    <td>2012/12/02</td>
-                                                    <td>$372,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Herrod Chandler</td>
-                                                    <td>Sales Assistant</td>
-                                                    <td>San Francisco</td>
-                                                    <td>59</td>
-                                                    <td>2012/08/06</td>
-                                                    <td>$137,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Rhona Davidson</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>Tokyo</td>
-                                                    <td>55</td>
-                                                    <td>2010/10/14</td>
-                                                    <td>$327,900</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Colleen Hurst</td>
-                                                    <td>Javascript Developer</td>
-                                                    <td>San Francisco</td>
-                                                    <td>39</td>
-                                                    <td>2009/09/15</td>
-                                                    <td>$205,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sonya Frost</td>
-                                                    <td>Software Engineer</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>23</td>
-                                                    <td>2008/12/13</td>
-                                                    <td>$103,600</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jena Gaines</td>
-                                                    <td>Office Manager</td>
-                                                    <td>London</td>
-                                                    <td>30</td>
-                                                    <td>2008/12/19</td>
-                                                    <td>$90,560</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Quinn Flynn</td>
-                                                    <td>Support Lead</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>22</td>
-                                                    <td>2013/03/03</td>
-                                                    <td>$342,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Charde Marshall</td>
-                                                    <td>Regional Director</td>
-                                                    <td>San Francisco</td>
-                                                    <td>36</td>
-                                                    <td>2008/10/16</td>
-                                                    <td>$470,600</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Haley Kennedy</td>
-                                                    <td>Senior Marketing Designer</td>
-                                                    <td>London</td>
-                                                    <td>43</td>
-                                                    <td>2012/12/18</td>
-                                                    <td>$313,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tatyana Fitzpatrick</td>
-                                                    <td>Regional Director</td>
-                                                    <td>London</td>
-                                                    <td>19</td>
-                                                    <td>2010/03/17</td>
-                                                    <td>$385,750</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Michael Silva</td>
-                                                    <td>Marketing Designer</td>
-                                                    <td>London</td>
-                                                    <td>66</td>
-                                                    <td>2012/11/27</td>
-                                                    <td>$198,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Paul Byrd</td>
-                                                    <td>Chief Financial Officer (CFO)</td>
-                                                    <td>New York</td>
-                                                    <td>64</td>
-                                                    <td>2010/06/09</td>
-                                                    <td>$725,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gloria Little</td>
-                                                    <td>Systems Administrator</td>
-                                                    <td>New York</td>
-                                                    <td>59</td>
-                                                    <td>2009/04/10</td>
-                                                    <td>$237,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Bradley Greer</td>
-                                                    <td>Software Engineer</td>
-                                                    <td>London</td>
-                                                    <td>41</td>
-                                                    <td>2012/10/13</td>
-                                                    <td>$132,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Dai Rios</td>
-                                                    <td>Personnel Lead</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>35</td>
-                                                    <td>2012/09/26</td>
-                                                    <td>$217,500</td>
-                                                </tr>
+                                                <?php $no = 1;
+                                                foreach ($data as $row) : ?>
+                                                    <tr>
+                                                        <td><?= $no++ ?></td>
+                                                        <td align="center">
+                                                            <button class="btn btn-primary btn-sm" id="upd" data-id="<?= $row->kd ?>"><i class="fa fa-edit"></i>&nbsp;Ubah</button>
+                                                        </td>
+                                                        <td><?= $row->kd ?></td>
+                                                        <td><?= $row->nama ?></td>
+                                                        <td><?= $row->alamat ?></td>
+                                                        <td><?= $row->keterangan ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                     <!-- end:: tabel -->
@@ -235,68 +78,38 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Modal title</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h4 class="modal-title">Tambah Asal</h4>
             </div>
-            <form action="">
+            <form action="<?= admin_url() ?>/asal/add" method="POST" id="form-add">
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">NIP</label>
+                        <label class="col-sm-2 col-form-label">Kode</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nip" id="nip" placeholder="NIP">
+                            <input type="text" name="inpkode" id="inpkode" class="form-control" value="<?= getKodeOtomatis('asal', 'AS') ?>" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">User Name</label>
+                        <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" id="username" placeholder="User Name">
+                            <input type="text" name="inpnama" id="inpnama" class="form-control" placeholder="Masukkan asal">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih User Profil</label>
+                        <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <select class="js-example-basic-single" style="width: 100%;">
-                                <option value="AL">Alabama</option>
-                                <option value="WY">Wyoming</option>
-                            </select>
+                            <textarea name="inpalamat" id="inpalamat" class="form-control" placeholder="Masukkan alamat"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih Instansi</label>
+                        <label class="col-sm-2 col-form-label">Keterangan</label>
                         <div class="col-sm-10">
-                            <select class="js-example-basic-single" style="width: 100%;">
-                                <option value="AL">Alabama</option>
-                                <option value="WY">Wyoming</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih Jabatan</label>
-                        <div class="col-sm-10">
-                            <select class="js-example-basic-single" style="width: 100%;">
-                                <option value="AL">Alabama</option>
-                                <option value="WY">Wyoming</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="password" id="password" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Repeat Password</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
+                            <textarea name="inpketerangan" id="inpketerangan" class="form-control" placeholder="Masukkan keterangan"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Save changes</button>
+                    <button type="button" id="cls" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i> Tutup</button>
+                    <button type="submit" id="add" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Simpan</button>
                 </div>
             </form>
         </div>
