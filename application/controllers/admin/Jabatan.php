@@ -37,9 +37,10 @@ class Jabatan extends MY_Controller
 
         $data = [
             'id_jabatan' => $result['id_jabatan'],
-            'kd'          => $result['kd'],
-            'nama'        => $result['nama'],
-            'keterangan'  => $result['keterangan'],
+            'kd'         => $result['kd'],
+            'nama'       => $result['nama'],
+            'keterangan' => $result['keterangan'],
+            'token'      => $this->security->get_csrf_hash()
         ];
 
         // untuk reponse

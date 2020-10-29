@@ -79,6 +79,8 @@
                 <h4 class="modal-title">Tambah Jabatan</h4>
             </div>
             <form action="<?= admin_url() ?>/jabatan/add" method="POST" id="form-add">
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>">
+
                 <div class="modal-body">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode</label>
