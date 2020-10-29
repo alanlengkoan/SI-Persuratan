@@ -60,7 +60,7 @@
             var ini = $(this);
 
             $('.modal-title').html('Tambah Golongan');
-            $('#inpkode').val('<?= getKodeOtomatis('asal', 'AS') ?>');
+            $('#inpkode').val('<?= getKodeOtomatis('golongan', 'GO') ?>');
             $('#inpnama').val('');
             $('#inpalamat').val('');
             $('#inpketerangan').val('');

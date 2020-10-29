@@ -60,7 +60,7 @@
             var ini = $(this);
 
             $('.modal-title').html('Tambah Instansi');
-            $('#inpkode').val('<?= getKodeOtomatis('asal', 'AS') ?>');
+            $('#inpkode').val('<?= getKodeOtomatis('instansi', 'IN') ?>');
             $('#inpnama').val('');
             $('#inpalamat').val('');
             $('#inpketerangan').val('');
