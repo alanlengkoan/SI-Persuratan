@@ -38,6 +38,8 @@
                         keyboard: false
                     })
 
+                    $('.modal-title').html('Ubah Asal');
+
                     $('form').attr('action', '<?= admin_url() ?>/asal/upd');
 
                     $('#inpkode').val(data.kd);
@@ -58,6 +60,7 @@
         $(document).on('click', '#cls', function() {
             var ini = $(this);
 
+            $('.modal-title').html('Tambah Asal');
             $('#inpkode').val('<?= getKodeOtomatis('asal', 'AS') ?>');
             $('#inpnama').val('');
             $('#inpalamat').val('');
