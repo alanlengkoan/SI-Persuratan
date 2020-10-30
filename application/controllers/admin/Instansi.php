@@ -40,6 +40,7 @@ class Instansi extends MY_Controller
             'kd'          => $result['kd'],
             'nama'        => $result['nama'],
             'keterangan'  => $result['keterangan'],
+            'token'       => $this->security->get_csrf_hash()
         ];
 
         // untuk reponse

@@ -25,7 +25,7 @@
 
             $.ajax({
                 type: "post",
-                url: "<?= admin_url() ?>/jabatan/get",
+                url: "<?= admin_url() ?>/sifat/get",
                 dataType: 'json',
                 data: {
                     id: ini.data('id'),
@@ -43,9 +43,9 @@
                         keyboard: false
                     })
 
-                    $('.modal-title').html('Ubah Jabatan');
+                    $('.modal-title').html('Ubah Sifat');
 
-                    $('form').attr('action', '<?= admin_url() ?>/jabatan/upd');
+                    $('form').attr('action', '<?= admin_url() ?>/sifat/upd');
 
                     $('#inpkode').val(data.kd);
                     $('#inpnama').val(data.nama);
@@ -64,8 +64,8 @@
         $(document).on('click', '#cls', function() {
             var ini = $(this);
 
-            $('.modal-title').html('Tambah Jabatan');
-            $('#inpkode').val('<?= getKodeOtomatis('jabatan', 'JB') ?>');
+            $('.modal-title').html('Tambah Sifat');
+            $('#inpkode').val('<?= getKodeOtomatis('sifat', 'JB') ?>');
             $('#inpnama').val('');
             $('#inpalamat').val('');
             $('#inpketerangan').val('');

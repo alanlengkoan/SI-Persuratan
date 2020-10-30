@@ -41,6 +41,7 @@ class Asal extends MY_Controller
             'nama'       => $result['nama'],
             'alamat'     => $result['alamat'],
             'keterangan' => $result['keterangan'],
+            'token'      => $this->security->get_csrf_hash()
         ];
 
         // untuk reponse

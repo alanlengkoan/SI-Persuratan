@@ -20,19 +20,24 @@
     var untukGetIdData = function() {
         $(document).on('click', '#upd', function() {
             var ini = $(this);
+            var csrfName = $('#_csrf_token').attr('name');
+            var csrfHash = $('#_csrf_token').val();
 
             $.ajax({
                 type: "post",
                 url: "<?= admin_url() ?>/instansi/get",
                 dataType: 'json',
                 data: {
-                    id: ini.data('id')
+                    id: ini.data('id'),
+                    [csrfName]: csrfHash
                 },
                 beforeSend: function() {
                     ini.attr('disabled', 'disabled');
                     ini.html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
                 },
                 success: function(data) {
+                    $('#_csrf_token').val(data.token);
+                    
                     $('#modal-input').modal({
                         backdrop: 'static',
                         keyboard: false

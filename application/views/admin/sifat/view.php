@@ -76,22 +76,22 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Jabatan</h4>
+                <h4 class="modal-title">Tambah Sifat</h4>
             </div>
-            <form action="<?= admin_url() ?>/jabatan/add" method="POST" id="form-add">
+            <form action="<?= admin_url() ?>/sifat/add" method="POST" id="form-add">
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>">
 
                 <div class="modal-body">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode</label>
                         <div class="col-sm-10">
-                            <input type="text" name="inpkode" id="inpkode" class="form-control" value="<?= getKodeOtomatis('jabatan', 'JB') ?>" readonly="readonly">
+                            <input type="text" name="inpkode" id="inpkode" class="form-control" value="<?= getKodeOtomatis('sifat', 'SF') ?>" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" name="inpnama" id="inpnama" class="form-control" placeholder="Masukkan jabatan">
+                            <input type="text" name="inpnama" id="inpnama" class="form-control" placeholder="Masukkan sifat">
                         </div>
                     </div>
                     <div class="form-group row">
