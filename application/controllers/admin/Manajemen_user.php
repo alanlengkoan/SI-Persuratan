@@ -45,10 +45,13 @@ class Manajemen_user extends MY_Controller
         $this->_response($data);
     }
 
+    // untuk simpan data
     public function simpan_data()
     {
         $this->m_manajemen_user->insert_data_users();
     }
+
+    // untuk ubah status
     public function update_status()
     {
         $this->m_manajemen_user->update_status_aktif_users();

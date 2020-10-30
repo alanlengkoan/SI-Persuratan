@@ -28,11 +28,13 @@ class Profil_user extends MY_Controller
         $this->load->view('admin/base', $data);
     }
 
+    // untuk simpan data
     public function simpan_data()
     {
         $this->m_profil->insert_data_profil();
     }
 
+    // untuk halaman edit
     public function edit()
     {
         $data = [
