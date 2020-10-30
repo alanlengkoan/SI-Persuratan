@@ -13,9 +13,9 @@ class Surat_masuk extends MY_Controller
         $data = [
             'halaman'    => 'Surat Masuk',
             'breadcrumb' => breadcrumb(admin_url()),
-            'content'    => 'admin/manajeman_user/view',
-            'css'        => '',
-            'js'         => ''
+            'content'    => 'admin/surat_masuk/view',
+            'css'        => 'admin/surat_masuk/css/view',
+            'js'         => 'admin/surat_masuk/js/view'
         ];
 
         $this->load->view('admin/base', $data);

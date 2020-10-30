@@ -13,7 +13,7 @@ class Surat_keluar extends MY_Controller
         $data = [
             'halaman'    => 'Surat Keluar',
             'breadcrumb' => breadcrumb(admin_url()),
-            'content'    => 'admin/manajeman_user/view',
+            'content'    => 'admin/surat_keluar/view',
             'css'        => '',
             'js'         => ''
         ];
