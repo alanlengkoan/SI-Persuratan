@@ -31,14 +31,13 @@
                                 <div class="card-block">
                                     <!-- begin:: tabel -->
                                     <div class="dt-responsive table-responsive">
-                                        <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                        <table id="datatable" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>
                                                     <th>Aksi</th>
                                                     <th>Kode</th>
                                                     <th>Nama</th>
-                                                    <th>Alamat</th>
                                                     <th>Keterangan</th>
                                                 </tr>
                                             </thead>
@@ -52,7 +51,6 @@
                                                         </td>
                                                         <td><?= $row->kd ?></td>
                                                         <td><?= $row->nama ?></td>
-                                                        <td><?= $row->alamat ?></td>
                                                         <td><?= $row->keterangan ?></td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -78,26 +76,20 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Asal</h4>
+                <h4 class="modal-title">Tambah Instansi</h4>
             </div>
-            <form action="<?= admin_url() ?>/asal/add" method="POST" id="form-add">
+            <form action="<?= admin_url() ?>/instansi/add" method="POST" id="form-add">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode</label>
                         <div class="col-sm-10">
-                            <input type="text" name="inpkode" id="inpkode" class="form-control" value="<?= getKodeOtomatis('asal', 'AS') ?>" readonly="readonly">
+                            <input type="text" name="inpkode" id="inpkode" class="form-control" value="<?= getKodeOtomatis('instansi', 'IN') ?>" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" name="inpnama" id="inpnama" class="form-control" placeholder="Masukkan asal">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
-                            <textarea name="inpalamat" id="inpalamat" class="form-control" placeholder="Masukkan alamat"></textarea>
+                            <input type="text" name="inpnama" id="inpnama" class="form-control" placeholder="Masukkan instansi">
                         </div>
                     </div>
                     <div class="form-group row">

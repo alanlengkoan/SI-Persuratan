@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Asal extends MY_Controller
+class Golongan extends MY_Controller
 {
     public function __construct()
     {
@@ -9,7 +9,7 @@ class Asal extends MY_Controller
 
         // untuk load model
         $this->load->model('crud');
-        $this->load->model('m_asal');
+        $this->load->model('m_golongan');
 
         // untuk cek session
         checking_session($this->session->userdata());
@@ -18,12 +18,12 @@ class Asal extends MY_Controller
     public function index()
     {
         $data = [
-            'halaman'    => 'Asal Surat',
+            'halaman'    => 'Golongan',
             'breadcrumb' => breadcrumb(admin_url()),
-            'content'    => 'admin/asal/view',
-            'data'       => $this->m_asal->getAll(),
-            'css'        => 'admin/asal/css/view',
-            'js'         => 'admin/asal/js/view',
+            'content'    => 'admin/golongan/view',
+            'data'       => $this->m_golongan->getAll(),
+            'css'        => 'admin/golongan/css/view',
+            'js'         => 'admin/golongan/js/view',
         ];
 
         $this->load->view('admin/base', $data);
@@ -33,14 +33,13 @@ class Asal extends MY_Controller
     public function get()
     {
         $post   = $this->input->post(NULL, TRUE);
-        $result = $this->crud->gda('asal', ['kd' => $post['id']]);
+        $result = $this->crud->gda('golongan', ['kd' => $post['id']]);
 
         $data = [
-            'id_asal'    => $result['id_asal'],
-            'kd'         => $result['kd'],
-            'nama'       => $result['nama'],
-            'alamat'     => $result['alamat'],
-            'keterangan' => $result['keterangan'],
+            'id_golongan' => $result['id_golongan'],
+            'kd'          => $result['kd'],
+            'nama'        => $result['nama'],
+            'keterangan'  => $result['keterangan'],
         ];
 
         // untuk reponse
@@ -55,7 +54,6 @@ class Asal extends MY_Controller
         $data = [
             'kd'         => $post['inpkode'],
             'nama'       => $post['inpnama'],
-            'alamat'     => $post['inpalamat'],
             'keterangan' => $post['inpketerangan'],
             'ins'        => date('Y-m-d H:i'),
             'ins_id'     => $this->session->userdata('id'),
@@ -63,7 +61,7 @@ class Asal extends MY_Controller
         ];
 
         $this->db->trans_start();
-        $this->crud->i('asal', $data);
+        $this->crud->i('golongan', $data);
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE) {
@@ -83,13 +81,12 @@ class Asal extends MY_Controller
 
         $data = [
             'nama'       => $post['inpnama'],
-            'alamat'     => $post['inpalamat'],
             'keterangan' => $post['inpketerangan'],
             'upd_id'     => $this->session->userdata('id'),
         ];
 
         $this->db->trans_start();
-        $this->crud->u('asal', $data, ['kd' => $post['inpkode']]);
+        $this->crud->u('golongan', $data, ['kd' => $post['inpkode']]);
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE) {

@@ -13,38 +13,42 @@
 <script>
     // untuk datatable
     var untukTabel = function() {
-        $('#simpletable').DataTable();
+        $('#datatable').DataTable();
     }();
 
     // untuk ambil data by id
     var untukGetIdData = function() {
         $(document).on('click', '#upd', function() {
             var ini = $(this);
+            var csrfName = $('#_csrf_token').attr('name');
+            var csrfHash = $('#_csrf_token').val();
 
             $.ajax({
                 type: "post",
-                url: "<?= admin_url() ?>/asal/get",
+                url: "<?= admin_url() ?>/jabatan/get",
                 dataType: 'json',
                 data: {
-                    id: ini.data('id')
+                    id: ini.data('id'),
+                    [csrfName]: csrfHash
                 },
                 beforeSend: function() {
                     ini.attr('disabled', 'disabled');
                     ini.html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
                 },
                 success: function(data) {
+                    $('#_csrf_token').val(data.token);
+                    
                     $('#modal-input').modal({
                         backdrop: 'static',
                         keyboard: false
                     })
 
-                    $('.modal-title').html('Ubah Asal');
+                    $('.modal-title').html('Ubah Jabatan');
 
-                    $('form').attr('action', '<?= admin_url() ?>/asal/upd');
+                    $('form').attr('action', '<?= admin_url() ?>/jabatan/upd');
 
                     $('#inpkode').val(data.kd);
                     $('#inpnama').val(data.nama);
-                    $('#inpalamat').val(data.alamat);
                     $('#inpketerangan').val(data.keterangan);
                     $('#modal-input').modal('show');
 
@@ -60,8 +64,8 @@
         $(document).on('click', '#cls', function() {
             var ini = $(this);
 
-            $('.modal-title').html('Tambah Asal');
-            $('#inpkode').val('<?= getKodeOtomatis('asal', 'AS') ?>');
+            $('.modal-title').html('Tambah Jabatan');
+            $('#inpkode').val('<?= getKodeOtomatis('jabatan', 'JB') ?>');
             $('#inpnama').val('');
             $('#inpalamat').val('');
             $('#inpketerangan').val('');

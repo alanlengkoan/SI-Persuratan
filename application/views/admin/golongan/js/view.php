@@ -13,7 +13,7 @@
 <script>
     // untuk datatable
     var untukTabel = function() {
-        $('#simpletable').DataTable();
+        $('#datatable').DataTable();
     }();
 
     // untuk ambil data by id
@@ -23,7 +23,7 @@
 
             $.ajax({
                 type: "post",
-                url: "<?= admin_url() ?>/asal/get",
+                url: "<?= admin_url() ?>/golongan/get",
                 dataType: 'json',
                 data: {
                     id: ini.data('id')
@@ -38,13 +38,12 @@
                         keyboard: false
                     })
 
-                    $('.modal-title').html('Ubah Asal');
+                    $('.modal-title').html('Ubah Golongan');
 
-                    $('form').attr('action', '<?= admin_url() ?>/asal/upd');
+                    $('form').attr('action', '<?= admin_url() ?>/golongan/upd');
 
                     $('#inpkode').val(data.kd);
                     $('#inpnama').val(data.nama);
-                    $('#inpalamat').val(data.alamat);
                     $('#inpketerangan').val(data.keterangan);
                     $('#modal-input').modal('show');
 
@@ -60,8 +59,8 @@
         $(document).on('click', '#cls', function() {
             var ini = $(this);
 
-            $('.modal-title').html('Tambah Asal');
-            $('#inpkode').val('<?= getKodeOtomatis('asal', 'AS') ?>');
+            $('.modal-title').html('Tambah Golongan');
+            $('#inpkode').val('<?= getKodeOtomatis('golongan', 'GO') ?>');
             $('#inpnama').val('');
             $('#inpalamat').val('');
             $('#inpketerangan').val('');

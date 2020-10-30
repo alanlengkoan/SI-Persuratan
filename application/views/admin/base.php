@@ -189,7 +189,7 @@
                                 <li class="pcoded-hasmenu active pcoded-trigger">
                                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                        <span class="pcoded-mtext">Dashboard</span>
+                                        <span class="pcoded-mtext">Master</span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="active">

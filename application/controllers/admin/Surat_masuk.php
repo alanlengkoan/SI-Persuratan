@@ -6,6 +6,9 @@ class Surat_masuk extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+
+        // untuk cek session
+        checking_session($this->session->userdata());
     }
 
     public function index()

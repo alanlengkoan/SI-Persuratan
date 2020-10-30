@@ -5,11 +5,11 @@ class M_profil extends CI_Model
 
     public function insert_data_profil()
     {
-        $post = $this->input->post();
-        $cek = $this->db->get_where('users_level', array('id_users_level', $post['id_user_level']))->num_rows();
+        $post = $this->input->post(NULL, TRUE);
+        $cek  = $this->db->get_where('users_level', array('id_users_level', $post['id_user_level']))->num_rows();
         if ($cek > 0) {
             $update_data = [
-                'level' => $post['level'],
+                'level'     => $post['level'],
                 'deskripsi' => $post['deskripsi'],
                 'hak_akses' => $post['akses_menu'],
             ];
@@ -19,7 +19,7 @@ class M_profil extends CI_Model
         }
         if ($cek == 0) {
             $insert_data = [
-                'level' => $post['level'],
+                'level'     => $post['level'],
                 'deskripsi' => $post['deskripsi'],
                 'hak_akses' => $post['akses_menu'],
             ];
@@ -39,7 +39,6 @@ class M_profil extends CI_Model
     public function get_edit_profil()
     {
         $id_user_level = $this->input->get('id');
-        // $data = [];
         $profil = $this->db->get_where('users_level', array('id_users_level' => $id_user_level));
         foreach ($profil->result() as $row) {
             $data = [
@@ -58,7 +57,6 @@ class M_profil extends CI_Model
                 'hak_akses' => '',
             ];
         }
-        // debug($data);
         return $data;
     }
 }
