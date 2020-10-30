@@ -56,7 +56,6 @@ class Jabatan extends MY_Controller
             'kd'         => $post['inpkode'],
             'nama'       => $post['inpnama'],
             'keterangan' => $post['inpketerangan'],
-            'ins'        => date('Y-m-d H:i'),
             'ins_id'     => $this->session->userdata('id'),
             'upd_id'     => $this->session->userdata('id'),
         ];

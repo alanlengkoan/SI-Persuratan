@@ -57,7 +57,6 @@ class Asal extends MY_Controller
             'nama'       => $post['inpnama'],
             'alamat'     => $post['inpalamat'],
             'keterangan' => $post['inpketerangan'],
-            'ins'        => date('Y-m-d H:i'),
             'ins_id'     => $this->session->userdata('id'),
             'upd_id'     => $this->session->userdata('id'),
         ];
