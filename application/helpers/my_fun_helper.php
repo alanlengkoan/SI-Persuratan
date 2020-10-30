@@ -525,4 +525,22 @@ if (!function_exists('breadcrumb')) {
         }
         return $result;
     }
+
+    //Cek Duplikat ID
+    function cek_duplikat($database, $table, $colom, $where, $data)
+    {
+        $ci = &get_instance();
+        $ci->$database->select($colom);
+        $ci->$database->from($table);
+        if (is_array($where)) {
+            $hitung = count($where);
+            for ($i = 0; $i < $hitung; $i++) {
+                $ci->$database->where($where[$i], $data[$i]);
+            }
+        } else {
+            $ci->$database->where($where, $data);
+        }
+        $cek = $ci->$database->get()->num_rows();
+        return $cek;
+    }
 }

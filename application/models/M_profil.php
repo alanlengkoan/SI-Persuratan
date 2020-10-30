@@ -3,32 +3,8 @@
 class M_profil extends CI_Model
 {
 
-    public function insert_data_profil()
-    {
-        $post = $this->input->post(NULL, TRUE);
-        $cek  = $this->db->get_where('users_level', array('id_users_level', $post['id_user_level']))->num_rows();
-        if ($cek > 0) {
-            $update_data = [
-                'level'     => $post['level'],
-                'deskripsi' => $post['deskripsi'],
-                'hak_akses' => $post['akses_menu'],
-            ];
-            $this->db->where('id_users_level', $post['id_user_level']);
-            $this->db->update('users_level', $update_data);
-            echo "data_update";
-        }
-        if ($cek == 0) {
-            $insert_data = [
-                'level'     => $post['level'],
-                'deskripsi' => $post['deskripsi'],
-                'hak_akses' => $post['akses_menu'],
-            ];
-            $this->db->insert('users_level', $insert_data);
-            echo "data_insert";
-        }
-    }
 
-    public function get_data_profil()
+    public function getAll()
     {
         $this->db->select('*');
         $this->db->from('users_level');
@@ -36,7 +12,7 @@ class M_profil extends CI_Model
         return $data->result();
     }
 
-    public function get_edit_profil()
+    public function getById()
     {
         $id_user_level = $this->input->get('id');
         $profil = $this->db->get_where('users_level', array('id_users_level' => $id_user_level));

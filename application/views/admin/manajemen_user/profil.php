@@ -24,7 +24,7 @@
                                     <h5>Form Profil User</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form action="<?= admin_url() ?>/profil_user/simpan_data" name="this_form" id="this_form" method="POST">
+                                    <form action="<?= admin_url() ?>/profil_user/add" name="this_form" id="this_form" method="POST">
                                         <!-- begin:: input hidden -->
                                         <input type="hidden" id="id_user_level" name="id_user_level" value="<?= $edit_data['id_level'] ?>" />
                                         <input type="hidden" id="akses_menu" name="akses_menu" />
@@ -44,7 +44,7 @@
                                             </div>
                                         </div>
 
-                                        <button name="submit" id="submit" class="btn btn-sm btn-primary m-b-0">
+                                        <button id="add" class="btn btn-sm btn-primary m-b-0">
                                             <i class="fa fa-plus"></i> Submit
                                         </button>
                                     </form>
@@ -64,18 +64,28 @@
                                             <?php
                                             $akses_menu = explode(",", $edit_data['hak_akses']);
 
+                                            //Manajemen Sistem
                                             echo open_parent_head_edit('', 'Manajemen Sistem');
                                             echo child_edit($akses_menu, 'Konfigurasi User', 'konfigurasi_user', '', '');
                                             echo child_edit($akses_menu, 'User Profil', 'user_profil', '', '');
                                             echo close_parent_head_edit();
+
+                                            //Master Data
+                                            echo open_parent_head_edit('', 'Master');
+                                            echo child_edit($akses_menu, 'Instansi', 'instansi', '', '');
+                                            echo child_edit($akses_menu, 'Golongan', 'golongan', '', '');
+                                            echo child_edit($akses_menu, 'Jabatan', 'jabatan', '', '');
+                                            echo child_edit($akses_menu, 'Sifat', 'sifat', '', '');
+                                            echo child_edit($akses_menu, 'Tujuan', 'tujuan', '', '');
+                                            echo child_edit($akses_menu, 'Asal', 'asal', '', '');
+                                            echo close_parent_head_edit();
+
                                             ?>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php var_dump($akses_menu) ?>
-                        <?php var_dump($edit_data['hak_akses']) ?>
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
@@ -87,27 +97,28 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
+                                                    <th>Aksi</th>
                                                     <th>Level</th>
                                                     <th>Deskripsi</th>
                                                     <th>Hak Akses</th>
-                                                    <th>Aksi</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 $a = 1;
                                                 foreach ($profil as $dt) { ?>
-
                                                     <tr>
                                                         <td><?= $a++ ?></td>
-                                                        <td><?= $dt->level ?></td>
-                                                        <td><?= $dt->deskripsi ?></td>
-                                                        <td><?= explode(",", $dt->hak_akses)[] ?></td>
                                                         <td>
-                                                            <a href="<?= admin_url() ?>/profil_user/edit?id=<?= $dt->id_users_level ?>" class="btn btn-primary btn-sm">
+                                                            <a href="<?= admin_url() ?>/profil_user/get?id=<?= $dt->id_users_level ?>" class="btn btn-primary btn-sm">
                                                                 <i class="fa fa-edit"></i> Edit
                                                             </a>
                                                         </td>
+                                                        <td><?= $dt->level ?></td>
+                                                        <td><?= $dt->deskripsi ?></td>
+                                                        <td><?= $dt->hak_akses ?></td>
+
                                                     </tr>
                                                 <?php  } ?>
                                             </tbody>

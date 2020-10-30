@@ -36,6 +36,22 @@
       $('#m_a').jstree(true).close_all();
 
       var UntukTambahDanUbahData = function() {
+
+          //   var parsleyConfig = {
+          //       errorsContainer: function(parsleyField) {
+          //           var $err = parsleyField.$element.siblings('#error');
+          //           return $err;
+          //       }
+          //   }
+
+          //   $('#this_form').parsley(parsleyConfig);
+
+
+          $('#level').attr('required', 'required');
+          $('#deskripsi').attr('required', 'required');
+          $('#akses_menu').attr('required', 'required');
+
+          //   if ($('#this_form').parsley().isValid() == true) {
           $(document).on("submit", "#this_form", function(e) {
               e.preventDefault();
               $.ajax({
@@ -50,15 +66,19 @@
                       $('#add').html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
                   },
                   success: function(data) {
-                      if (data == "data_insert") swal("", "Data berhasil disimpan!", "success").then(function() {
-                          location.reload();
-                      });
-                      else swal("", "Data berhasil diupdate!", "success").then(function() {
-                          location.reload();
-
-                      });
+                      swal({
+                              title: data.title,
+                              text: data.text,
+                              icon: data.type,
+                              button: data.button,
+                          })
+                          .then((value) => {
+                              location.reload();
+                          });
                   }
               });
+
           });
+          //   }
       }();
   </script>

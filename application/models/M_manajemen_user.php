@@ -11,7 +11,7 @@ class M_manajemen_user extends CI_Model
         return $data->result();
     }
 
-    public function data_profil()
+    public function GetAllDataProfil()
     {
         $this->db->select('*');
         $this->db->from('users_level');

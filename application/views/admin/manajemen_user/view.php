@@ -63,9 +63,9 @@
                                                     <div class="col-sm-10">
                                                         <select class="select2" name="user_profil" id="user_profil" style="width: 100%;">
                                                             <option value=""></option>
-                                                            <?php foreach ($data_profil as $dt) : ?>
+                                                            <?php foreach ($profil as $dt) : ?>
                                                                 <option value="">Pilih Profil</option>
-                                                                <option value="<?= $dt->id_users_level ?>"><?= $dt->deskripsi ?></option>
+                                                                <option value="<?= $dt->id_users_level ?>"><?= $dt->level ?></option>
                                                             <?php endforeach ?>
                                                         </select>
                                                     </div>

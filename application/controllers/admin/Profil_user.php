@@ -19,8 +19,8 @@ class Profil_user extends MY_Controller
         $data = [
             'halaman'    => 'Profil User',
             'breadcrumb' => breadcrumb(admin_url()),
-            'profil'     => $this->m_profil->get_data_profil(),
-            'edit_data'  => $this->m_profil->get_edit_profil(),
+            'profil'     => $this->m_profil->getAll(),
+            'edit_data'  => $this->m_profil->getById(),
             'content'    => 'admin/manajemen_user/profil',
             'css'        => 'admin/manajemen_user/css/profil',
             'js'         => 'admin/manajemen_user/js/profil',
@@ -28,20 +28,56 @@ class Profil_user extends MY_Controller
         $this->load->view('admin/base', $data);
     }
 
-    // untuk simpan data
-    public function simpan_data()
+    // untuk simpan data dan update data
+    public function add()
     {
-        $this->m_profil->insert_data_profil();
+        $post   = $this->input->post(NULL, TRUE);
+        $cek    = cek_duplikat('db', 'users_level', 'id_users_level', 'id_users_level', $post['id_user_level']);
+        if ($cek > 0) {
+            $data = [
+                'level'     => $post['level'],
+                'deskripsi' => $post['deskripsi'],
+                'hak_akses' => $post['akses_menu'],
+            ];
+            $this->db->trans_start();
+            $this->crud->u('users_level', $data, ['id_users_level' => $post['id_user_level']]);
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === FALSE) {
+                $response = ['title' => 'Gagal!', 'text' => 'Gagal Update', 'type' => 'error', 'button' => 'Ok!'];
+            } else {
+                $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Update', 'type' => 'success', 'button' => 'Ok!'];
+            }
+        }
+        if ($cek == 0) {
+            $data = [
+                'level'     => $post['level'],
+                'deskripsi' => $post['deskripsi'],
+                'hak_akses' => $post['akses_menu'],
+            ];
+            $this->db->trans_start();
+            $this->crud->i('users_level', $data);
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === FALSE) {
+                $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan', 'type' => 'error', 'button' => 'Ok!'];
+            } else {
+                $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan', 'type' => 'success', 'button' => 'Ok!'];
+            }
+        }
+
+        //Untuk Response
+        $this->_response($response);
     }
 
     // untuk halaman edit
-    public function edit()
+    public function get()
     {
         $data = [
             'halaman'    => 'Profil User',
             'breadcrumb' => breadcrumb(admin_url()),
-            'profil'     => $this->m_profil->get_data_profil(),
-            'edit_data'  => $this->m_profil->get_edit_profil(),
+            'profil'     => $this->m_profil->getAll(),
+            'edit_data'  => $this->m_profil->getById(),
             'content'    => 'admin/manajemen_user/profil',
             'css'        => 'admin/manajemen_user/css/profil',
             'js'         => 'admin/manajemen_user/js/profil',
