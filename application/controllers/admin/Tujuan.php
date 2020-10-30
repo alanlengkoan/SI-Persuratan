@@ -36,7 +36,7 @@ class Tujuan extends MY_Controller
         $result = $this->crud->gda('tujuan', ['kd' => $post['id']]);
 
         $data = [
-            'id_tujuan'    => $result['id_tujuan'],
+            'id_tujuan'  => $result['id_tujuan'],
             'kd'         => $result['kd'],
             'nama'       => $result['nama'],
             'alamat'     => $result['alamat'],
