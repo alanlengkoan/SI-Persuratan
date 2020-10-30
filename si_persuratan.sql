@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 24 Okt 2020 pada 10.04
--- Versi Server: 10.1.44-MariaDB-0ubuntu0.18.04.1
+-- Generation Time: 30 Okt 2020 pada 21.13
+-- Versi Server: 10.1.47-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -32,9 +32,9 @@ CREATE TABLE `asal` (
   `nama` varchar(50) DEFAULT NULL,
   `alamat` text,
   `keterangan` text,
-  `ins` datetime NOT NULL,
+  `ins` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ins_id` int(11) DEFAULT NULL,
-  `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `upd_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -49,10 +49,10 @@ CREATE TABLE `golongan` (
   `kd` varchar(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `keterangan` text NOT NULL,
-  `ins` int(11) NOT NULL,
-  `ins_id` datetime NOT NULL,
-  `upd` int(11) NOT NULL,
-  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `ins` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ins_id` int(11) NOT NULL,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `upd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -66,10 +66,10 @@ CREATE TABLE `instansi` (
   `kd` varchar(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `keterangan` text NOT NULL,
-  `ins` int(11) NOT NULL,
-  `ins_id` datetime NOT NULL,
-  `upd` int(11) NOT NULL,
-  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `ins` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ins_id` int(11) NOT NULL,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `upd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -83,10 +83,10 @@ CREATE TABLE `jabatan` (
   `kd` varchar(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `keterangan` text NOT NULL,
-  `ins` int(11) NOT NULL,
-  `ins_id` datetime NOT NULL,
-  `upd` int(11) NOT NULL,
-  `upd_id` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `ins` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ins_id` int(11) NOT NULL,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `upd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -100,9 +100,9 @@ CREATE TABLE `sifat` (
   `kd` varchar(10) DEFAULT NULL,
   `nama` varchar(50) DEFAULT NULL,
   `keterangan` text,
-  `ins` datetime NOT NULL,
+  `ins` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ins_id` int(11) DEFAULT NULL,
-  `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `upd_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -194,7 +194,7 @@ CREATE TABLE `tujuan` (
   `nama` varchar(50) DEFAULT NULL,
   `alamat` text,
   `keterangan` text,
-  `ins` datetime NOT NULL,
+  `ins` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `ins_id` int(11) DEFAULT NULL,
   `upd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `upd_id` int(11) DEFAULT NULL
@@ -247,6 +247,13 @@ CREATE TABLE `users_level` (
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `users_level`
+--
+
+INSERT INTO `users_level` (`id_users_level`, `level`, `deskripsi`, `hak_akses`, `ins`, `ins_id`, `upd`, `upd_id`) VALUES
+(1, 'admin', 'admin it', '#,j1_1,konfigurasi_user,user_profil', '0000-00-00 00:00:00', 0, '2020-10-26 02:04:30', 0);
 
 --
 -- Indexes for dumped tables
@@ -338,6 +345,21 @@ ALTER TABLE `users_level`
 ALTER TABLE `asal`
   MODIFY `id_asal` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `golongan`
+--
+ALTER TABLE `golongan`
+  MODIFY `id_golongan` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `instansi`
+--
+ALTER TABLE `instansi`
+  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `sifat`
 --
 ALTER TABLE `sifat`
@@ -366,7 +388,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_level`
 --
 ALTER TABLE `users_level`
-  MODIFY `id_users_level` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_users_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
