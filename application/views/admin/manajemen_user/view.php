@@ -45,13 +45,7 @@
                                             <h5>Form Manjement User</h5>
                                         </div>
                                         <div class="card-block">
-                                            <form action="">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">NIP</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="nip" id="nip" placeholder="NIP">
-                                                    </div>
-                                                </div>
+                                            <form action="" name="this_form" id="this_form">
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label">User Name</label>
                                                     <div class="col-sm-10">
@@ -59,29 +53,40 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Pilih User Profil</label>
+                                                    <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                                                     <div class="col-sm-10">
-                                                        <select class="js-example-basic-single" style="width: 100%;">
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
+                                                        <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Nama Lengkap">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 col-form-label">User Profil</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="select2" name="user_profil" id="user_profil" style="width: 100%;">
+                                                            <option value=""></option>
+                                                            <?php foreach ($data_profil as $dt) : ?>
+                                                                <option value="">Pilih Profil</option>
+                                                                <option value="<?= $dt->id_users_level ?>"><?= $dt->deskripsi ?></option>
+                                                            <?php endforeach ?>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Pilih Instansi</label>
+                                                    <label class="col-sm-2 col-form-label">Instansi</label>
                                                     <div class="col-sm-10">
-                                                        <select class="js-example-basic-single" style="width: 100%;">
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
+                                                        <select class="select2" name="instansi" id="instansi" style="width: 100%;">
+                                                            <option value=""></option>
+                                                            <option value="1">SKPD</option>
+                                                            <option value="2">PDSK</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Pilih Jabatan</label>
+                                                    <label class="col-sm-2 col-form-label">Jabatan</label>
                                                     <div class="col-sm-10">
-                                                        <select class="js-example-basic-single" style="width: 100%;">
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
+                                                        <select class="select2" name="jabatan" id="jabatan" style="width: 100%;">
+                                                            <option value=""></option>
+                                                            <option value="1">Kepala Dinas</option>
+                                                            <option value="2">Staff</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -102,7 +107,9 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2"></label>
                                                 <div class="col-sm-10">
-                                                    <button type="submit" class="btn btn-sm btn-primary m-b-0">Submit</button>
+                                                    <button type="submit" class="btn btn-sm btn-primary">
+                                                        <i class="icofont icofont-save"></i> Submit
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,27 +128,29 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Status</th>
-
+                                                            <th>Aksi</th>
                                                             <th>User Name</th>
                                                             <th>Profil</th>
                                                             <th>Nama</th>
                                                             <th>Jabatan</th>
                                                             <th>Instansi</th>
-                                                            <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php foreach ($data_user as $dt) { ?>
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="js-single" <?= $dt->status_aktif == "1" ? 'checked' : '' ?> onchange="update_status('<?= $dt->id_users ?>')" />
+                                                                    <input type="checkbox" id="update_status" class="js-single" <?= $dt->status_aktif == "1" ? 'checked' : false ?> data-status_aktif="<?= $dt->status_aktif ?>" data-id_users="<?= $dt->id_users ?>" />
+                                                                    <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>" />
+                                                                </td>
+                                                                <td align=" center">
+                                                                    <button class=" btn btn-primary btn-sm" id="upd" data-id_users="<?= $dt->id_users ?>"><i class="fa fa-edit"></i>&nbsp;Ubah</button>
                                                                 </td>
                                                                 <td><?= $dt->username ?></td>
-                                                                <td><?= $dt->id_profil ?></td>
+                                                                <td><?= $dt->id_users_profil ?></td>
                                                                 <td><?= $dt->nama ?></td>
                                                                 <td><?= $dt->id_jabatan ?></td>
                                                                 <td><?= $dt->id_instansi ?></td>
-                                                                <td></td>
                                                             </tr>
                                                         <?php } ?>
                                                     </tbody>

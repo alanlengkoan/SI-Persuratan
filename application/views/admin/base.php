@@ -13,8 +13,10 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/bower_components/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/icofont/css/icofont.css">
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/pages/waves/css/waves.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/icon/feather/css/feather.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/assets/css/style_custom.css" />
     <!-- end:: css universal -->
 
     <!-- begin:: css local -->

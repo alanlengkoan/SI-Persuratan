@@ -37,7 +37,7 @@
                 },
                 success: function(data) {
                     $('#_csrf_token').val(data.token);
-                    
+
                     $('#modal-input').modal({
                         backdrop: 'static',
                         keyboard: false
