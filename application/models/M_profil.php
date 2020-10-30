@@ -13,7 +13,7 @@ class M_profil extends CI_Model
                 'deskripsi' => $post['deskripsi'],
                 'hak_akses' => $post['akses_menu'],
             ];
-            $this->db->where('id_user_level', $post['id_user_level']);
+            $this->db->where('id_users_level', $post['id_user_level']);
             $this->db->update('users_level', $update_data);
             echo "data_update";
         }

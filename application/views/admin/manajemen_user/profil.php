@@ -24,10 +24,11 @@
                                     <h5>Form Profil User</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form action="" name="this_form" id="this_form">
+                                    <form action="<?= admin_url() ?>/profil_user/simpan_data" name="this_form" id="this_form" method="POST">
                                         <!-- begin:: input hidden -->
                                         <input type="hidden" id="id_user_level" name="id_user_level" value="<?= $edit_data['id_level'] ?>" />
                                         <input type="hidden" id="akses_menu" name="akses_menu" />
+                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>">
                                         <!-- end:: input hidden -->
 
                                         <div class="form-group row">
@@ -73,6 +74,8 @@
                                 </div>
                             </div>
                         </div>
+                        <?php var_dump($akses_menu) ?>
+                        <?php var_dump($edit_data['hak_akses']) ?>
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
@@ -99,7 +102,7 @@
                                                         <td><?= $a++ ?></td>
                                                         <td><?= $dt->level ?></td>
                                                         <td><?= $dt->deskripsi ?></td>
-                                                        <td><?= $dt->hak_akses ?></td>
+                                                        <td><?= explode(",", $dt->hak_akses)[] ?></td>
                                                         <td>
                                                             <a href="<?= admin_url() ?>/profil_user/edit?id=<?= $dt->id_users_level ?>" class="btn btn-primary btn-sm">
                                                                 <i class="fa fa-edit"></i> Edit

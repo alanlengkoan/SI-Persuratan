@@ -8,6 +8,7 @@ class Profil_user extends MY_Controller
         parent::__construct();
         // untuk load model
         $this->load->model('m_profil');
+        $this->load->model('crud');
 
         // untuk cek session
         checking_session($this->session->userdata());
@@ -19,7 +20,7 @@ class Profil_user extends MY_Controller
             'halaman'    => 'Profil User',
             'breadcrumb' => breadcrumb(admin_url()),
             'profil'     => $this->m_profil->get_data_profil(),
-            'edit_data'       => $this->m_profil->get_edit_profil(),
+            'edit_data'  => $this->m_profil->get_edit_profil(),
             'content'    => 'admin/manajemen_user/profil',
             'css'        => 'admin/manajemen_user/css/profil',
             'js'         => 'admin/manajemen_user/js/profil',
@@ -38,7 +39,7 @@ class Profil_user extends MY_Controller
             'halaman'    => 'Profil User',
             'breadcrumb' => breadcrumb(admin_url()),
             'profil'     => $this->m_profil->get_data_profil(),
-            'edit_data'       => $this->m_profil->get_edit_profil(),
+            'edit_data'  => $this->m_profil->get_edit_profil(),
             'content'    => 'admin/manajemen_user/profil',
             'css'        => 'admin/manajemen_user/css/profil',
             'js'         => 'admin/manajemen_user/js/profil',

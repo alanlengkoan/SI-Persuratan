@@ -35,23 +35,30 @@
       });
       $('#m_a').jstree(true).close_all();
 
-      $(document).on("submit", "#this_form", function(e) {
-          e.preventDefault();
-          $.ajax({
-              type: "POST",
-              url: "<?= admin_url() ?>/profil_user/simpan_data",
-              processData: false,
-              contentType: false,
-              data: new FormData(document.getElementById('this_form')),
-              success: function(data) {
-                  if (data == "data_insert") swal("", "Data berhasil disimpan!", "success").then(function() {
-                      location.reload();
-                  });
-                  else swal("", "Data berhasil diupdate!", "success").then(function() {
-                      location.reload();
+      var UntukTambahDanUbahData = function() {
+          $(document).on("submit", "#this_form", function(e) {
+              e.preventDefault();
+              $.ajax({
+                  method: $(this).attr('method'),
+                  url: $(this).attr('action'),
+                  data: new FormData(this),
+                  processData: false,
+                  contentType: false,
+                  dataType: 'json',
+                  beforeSend: function() {
+                      $('#add').attr('disabled', 'disabled');
+                      $('#add').html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
+                  },
+                  success: function(data) {
+                      if (data == "data_insert") swal("", "Data berhasil disimpan!", "success").then(function() {
+                          location.reload();
+                      });
+                      else swal("", "Data berhasil diupdate!", "success").then(function() {
+                          location.reload();
 
-                  });
-              }
+                      });
+                  }
+              });
           });
-      });
+      }();
   </script>

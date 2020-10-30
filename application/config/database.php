@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $active_group = 'default';
 $query_builder = TRUE;
@@ -7,8 +7,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'my_root',
-	'password' => 'my_pass',
+	'username' => 'root',
+	'password' => 'root',
 	'database' => 'si_persuratan',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
