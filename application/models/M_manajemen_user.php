@@ -19,22 +19,19 @@ class M_manajemen_user extends CI_Model
         return $data->result();
     }
 
-    public function update_status_aktif_users()
+    public function GetAllDataJabatan()
     {
-        $post = $this->input->post(NULL, TRUE);
-        $update_data = array(
-            'status_aktif' => $post['status_aktif'],
+        $this->db->select('*');
+        $this->db->from('jabatan');
+        $data = $this->db->get();
+        return $data->result();
+    }
 
-        );
-
-        $this->db->where('id_users', $post['id_users']);
-        $this->db->update('users', $update_data);
-        $response = [
-            'status' => true,
-            'token' => $this->security->get_csrf_hash(),
-
-        ];
-
-        echo json_encode($response);
+    public function GetAllInstansi()
+    {
+        $this->db->select('*');
+        $this->db->from('instansi');
+        $data = $this->db->get();
+        return $data->result();
     }
 }

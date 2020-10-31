@@ -26,7 +26,7 @@
                             <div class="tab-header card">
                                 <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#manajemen_user" role="tab">Manajemen User</a>
+                                        <a class="nav-link active" data-toggle="tab" href="#manajemen_users" role="tab">Manajemen User</a>
                                         <div class="slide"></div>
                                     </li>
                                     <li class="nav-item">
@@ -38,14 +38,18 @@
                             </div>
                             <div class="card">
                                 <div class="tab-content">
-                                    <!-- tab panel manajemen_user start -->
-                                    <div class="tab-pane active" id="manajemen_user" role="tabpanel">
-                                        <!-- manajemen_user card start -->
+                                    <!-- tab panel manajemen_users start -->
+                                    <div class="tab-pane active" id="manajemen_users" role="tabpanel">
+                                        <!-- manajemen_users card start -->
                                         <div class="card-header">
                                             <h5>Form Manjement User</h5>
                                         </div>
                                         <div class="card-block">
-                                            <form action="" name="this_form" id="this_form">
+                                            <form action="<?= admin_url() ?>/manajemen_user/add" name="this_form" id="this_form" method="POST">
+                                                <!-- begin:: input hidden -->
+                                                <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>">
+                                                <!-- end:: input hidden -->
+
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label">User Name</label>
                                                     <div class="col-sm-10">
@@ -64,7 +68,6 @@
                                                         <select class="select2" name="user_profil" id="user_profil" style="width: 100%;">
                                                             <option value=""></option>
                                                             <?php foreach ($profil as $dt) : ?>
-                                                                <option value="">Pilih Profil</option>
                                                                 <option value="<?= $dt->id_users_level ?>"><?= $dt->level ?></option>
                                                             <?php endforeach ?>
                                                         </select>
@@ -75,8 +78,9 @@
                                                     <div class="col-sm-10">
                                                         <select class="select2" name="instansi" id="instansi" style="width: 100%;">
                                                             <option value=""></option>
-                                                            <option value="1">SKPD</option>
-                                                            <option value="2">PDSK</option>
+                                                            <?php foreach ($instansi as $dt) : ?>
+                                                                <option value="<?= $dt->id_instansi ?>"><?= $dt->nama ?></option>
+                                                            <?php endforeach ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -85,33 +89,33 @@
                                                     <div class="col-sm-10">
                                                         <select class="select2" name="jabatan" id="jabatan" style="width: 100%;">
                                                             <option value=""></option>
-                                                            <option value="1">Kepala Dinas</option>
-                                                            <option value="2">Staff</option>
+                                                            <?php foreach ($jabatan as $dt) : ?>
+                                                                <option value="<?= $dt->id_jabatan ?>"><?= $dt->nama ?></option>
+                                                            <?php endforeach ?>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label">Password</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+                                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label">Repeat Password</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
+                                                        <input type="password" class="form-control" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
                                                     </div>
                                                 </div>
-
-                                            </form>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2"></label>
-                                                <div class="col-sm-10">
-                                                    <button type="submit" class="btn btn-sm btn-primary">
-                                                        <i class="icofont icofont-save"></i> Submit
-                                                    </button>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2"></label>
+                                                    <div class="col-sm-10">
+                                                        <button type="submit" id="add" class="btn btn-sm btn-success">
+                                                            <i class="fa fa-save"></i> Simpan
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                         <!-- manajemen_user card end-->
                                     </div>
@@ -141,7 +145,6 @@
                                                             <tr>
                                                                 <td>
                                                                     <input type="checkbox" id="update_status" class="js-single" <?= $dt->status_aktif == "1" ? 'checked' : false ?> data-status_aktif="<?= $dt->status_aktif ?>" data-id_users="<?= $dt->id_users ?>" />
-                                                                    <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>" />
                                                                 </td>
                                                                 <td align=" center">
                                                                     <button class=" btn btn-primary btn-sm" id="upd" data-id_users="<?= $dt->id_users ?>"><i class="fa fa-edit"></i>&nbsp;Ubah</button>

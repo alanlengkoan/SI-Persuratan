@@ -2,6 +2,7 @@
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/multiselect/js/jquery.multi-select.js"></script>
 <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/advance-elements/select2-custom.js"></script>
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/switchery/js/switchery.min.js"></script>
+<!-- <script type="text/javascript" src="< ?= assets_url() ?>admin/assets/pages/advance-elements/swithces.js"></script> -->
 <script type="text/javascript">
   var elemsingle = document.querySelector('.js-single');
   var switchery = new Switchery(elemsingle, {
@@ -22,33 +23,60 @@
     });
   });
 
-  var UntukAddDataUpdateData = function() {
+  var UntukTambahDanUbahData = function() {
+
+    //   var parsleyConfig = {
+    //       errorsContainer: function(parsleyField) {
+    //           var $err = parsleyField.$element.siblings('#error');
+    //           return $err;
+    //       }
+    //   }
+
+    //   $('#this_form').parsley(parsleyConfig);
+
+
+    // $('#level').attr('required', 'required');
+    // $('#deskripsi').attr('required', 'required');
+    // $('#akses_menu').attr('required', 'required');
+
+    //   if ($('#this_form').parsley().isValid() == true) {
     $(document).on("submit", "#this_form", function(e) {
       e.preventDefault();
       $.ajax({
-        type: "POST",
-        url: "<?= admin_url() ?>/manajemen_user/simpan_data",
+        method: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: new FormData(this),
         processData: false,
         contentType: false,
-        data: new FormData(document.getElementById('this_form')),
+        dataType: 'json',
+        beforeSend: function() {
+          $('#add').attr('disabled', 'disabled');
+          $('#add').html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
+        },
         success: function(data) {
-          if (data == "data_insert") swal("", "Data berhasil disimpan!", "success").then(function() {
-            location.reload();
-          });
-          else swal("", "Data berhasil diupdate!", "success").then(function() {
-            location.reload();
-
-          });
+          swal({
+              title: data.title,
+              text: data.text,
+              icon: data.type,
+              button: data.button,
+            })
+            .then((value) => {
+              location.reload();
+            });
         }
       });
+
     });
+    //   }
   }();
 
   var UntukGetDataByID = function() {
     $(document).on('click', '#upd', function() {
+      $('.nav-tabs a:first').tab('show');
       var ini = $(this);
       var csrfName = $('#_csrf_token').attr('name');
       var csrfHash = $('#_csrf_token').val();
+
       $.ajax({
         type: "post",
         url: "<?= admin_url() ?>/manajemen_user/get",
@@ -60,11 +88,15 @@
         success: function(data) {
           $('#_csrf_token').val(data.token);
 
+          $('form').attr('action', '<?= admin_url() ?>/manajemen_user/upd');
+
           $('#username').val(data.username);
           $('#nama_lengkap').val(data.nama);
           $('#user_profil').val(data.id_users_profil);
           $('#instansi').val(data.id_instansi);
           $('#jabatan').val(data.id_jabatan);
+
+
         }
       });
     });
@@ -79,7 +111,7 @@
       var csrfHash = $('#_csrf_token').val();
       $.ajax({
         type: "post",
-        url: "<?= admin_url() ?>/manajemen_user/update_status",
+        url: "<?= admin_url() ?>/manajemen_user/updStatusAktif",
         data: {
           'status_aktif': status,
           'id_users': id_users,
@@ -87,12 +119,13 @@
         },
         dataType: "json",
         success: function(data) {
-          $('#_csrf_token').val(data.token);
-          if (data.status == true) {
-            swal("", "Data berhasil diupdate!", "success").then(function() {});
-          } else {
-            swal("", "Data gagal diupdate!", "error").then(function() {});
-          }
+          swal({
+            title: data.title,
+            text: data.text,
+            icon: data.type,
+            button: data.button,
+          })
+
         }
       });
     });

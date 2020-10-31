@@ -20,7 +20,9 @@ class Manajemen_user extends MY_Controller
             'halaman'    => 'Manajemen User',
             'breadcrumb' => breadcrumb(admin_url()),
             'data_user'  => $this->m_manajemen_user->GetAllDataUser(),
-            'profil'  => $this->m_manajemen_user->GetAllDataProfil(),
+            'profil'     => $this->m_manajemen_user->GetAllDataProfil(),
+            'instansi'   => $this->m_manajemen_user->GetAllInstansi(),
+            'jabatan'    => $this->m_manajemen_user->GetAllDataJabatan(),
             'content'    => 'admin/manajemen_user/view',
             'css'        => 'admin/manajemen_user/css/view',
             'js'         => 'admin/manajemen_user/js/view',
@@ -33,8 +35,9 @@ class Manajemen_user extends MY_Controller
     public function get()
     {
         $post   = $this->input->post(NULL, TRUE);
-        $result = $this->crud->gda('users', ['id_users', $post['id']]);
 
+        $result = $this->crud->gda('users', ['id_users', $post['id']]);
+        // debug($result);
         $data = [
             'id_users'        => $result['id_users'],
             'id_users_profil' => $result['id_users_profil'],
@@ -47,14 +50,81 @@ class Manajemen_user extends MY_Controller
     }
 
     // untuk simpan data
-    public function simpan_data()
+    public function add()
     {
-        $this->m_manajemen_user->insert_data_users();
+        $post   = $this->input->post(NULL, TRUE);
+        // debug($post);
+        $data = [
+            'username'          => $post['username'],
+            'nama'              => $post['nama_lengkap'],
+            'id_users_profil'   => $post['user_profil'],
+            'id_instansi'       => $post['instansi'],
+            'id_jabatan'        => $post['jabatan'],
+            'password'          => md5($post['password']),
+
+        ];
+
+        $this->db->trans_start();
+        $this->crud->i('users', $data);
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE) {
+            $response = ['title' => 'Gagal!', 'text' => 'Gagal Simpan!', 'type' => 'error', 'button' => 'Ok!'];
+        } else {
+            $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Simpan!', 'type' => 'success', 'button' => 'Ok!'];
+        }
+
+        // untuk reponse
+        $this->_response($response);
+    }
+    // untuk update data
+    public function upd()
+    {
+        $post   = $this->input->post(NULL, TRUE);
+        debug($post);
+        $data = [
+            'username'          => $post['username'],
+            'nama'              => $post['nama_lengkap'],
+            'id_users_profil'   => $post['user_profil'],
+            'id_instansi'       => $post['instansi'],
+            'id_jabatan'        => $post['jabatan'],
+            'password'          => md5($post['password']),
+
+        ];
+
+        $this->db->trans_start();
+        $this->crud->u('users', $data, ['id_users' => $post['id_users']]);
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE) {
+            $response = ['title' => 'Gagal!', 'text' => 'Gagal Update!', 'type' => 'error', 'button' => 'Ok!'];
+        } else {
+            $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Update!', 'type' => 'success', 'button' => 'Ok!'];
+        }
+
+        // untuk reponse
+        $this->_response($response);
     }
 
     // untuk ubah status
-    public function update_status()
+    public function updStatusAktif()
     {
-        $this->m_manajemen_user->update_status_aktif_users();
+        $post = $this->input->post(NULL, TRUE);
+        $data = array(
+            'status_aktif' => $post['status_aktif'],
+
+        );
+        $this->db->trans_start();
+        $this->crud->u('users', $data, ['id_users' => $post['id_users']]);
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE) {
+            $response = ['title' => 'Gagal!', 'text' => 'Gagal Update!', 'type' => 'error', 'button' => 'Ok!'];
+        } else {
+            $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Update!', 'type' => 'success', 'button' => 'Ok!'];
+        }
+
+        // untuk reponse
+        $this->_response($response);
     }
 }
