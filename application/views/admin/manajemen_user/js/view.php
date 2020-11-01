@@ -46,6 +46,7 @@
     //   if ($('#this_form').parsley().isValid() == true) {
     $(document).on("submit", "#this_form", function(e) {
       e.preventDefault();
+
       $.ajax({
         method: $(this).attr('method'),
         url: $(this).attr('action'),
@@ -92,8 +93,6 @@
         success: function(data) {
           $('#_csrf_token').val(data.token);
 
-
-
           $('#id_users').val(data.id_users);
           $('#username').val(data.username);
           $('#nama_lengkap').val(data.nama);
@@ -101,7 +100,6 @@
           $('#instansi').val(data.id_instansi);
           $('#jabatan').val(data.id_jabatan);
           $('form').attr('action', '<?= admin_url() ?>/manajemen_user/upd');
-
         }
       });
     });
@@ -133,7 +131,6 @@
             icon: data.type,
             button: data.button,
           })
-
         }
       });
     });

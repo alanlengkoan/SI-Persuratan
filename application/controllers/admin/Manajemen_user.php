@@ -34,17 +34,18 @@ class Manajemen_user extends MY_Controller
     public function get()
     {
         $post   = $this->input->post(NULL, TRUE);
-
-        $result = $this->crud->gda('users', ['id_users', $post['id_users']]);
-        // debug($result);
+        $result = $this->crud->gd('users', ['id_users' => $post['id_users']]);
+        
         $data = [
-            'id_users'        => $result['id_users'],
-            'id_users_profil' => $result['id_users_profil'],
-            'id_instansi'     => $result['id_instansi'],
-            'id_jabatan'      => $result['id_jabatan'],
-            'nama'            => $result['nama'],
-            'username'        => $result['username'],
+            'id_users'        => $result->id_users,
+            'id_users_profil' => $result->id_users_profil,
+            'id_instansi'     => $result->id_instansi,
+            'id_jabatan'      => $result->id_jabatan,
+            'nama'            => $result->nama,
+            'username'        => $result->username,
+            'token'           => $this->security->get_csrf_hash(),
         ];
+
         $this->_response($data);
     }
 
