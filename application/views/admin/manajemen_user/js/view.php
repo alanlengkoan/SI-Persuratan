@@ -1,8 +1,9 @@
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/select2/js/select2.full.min.js"></script>
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/multiselect/js/jquery.multi-select.js"></script>
-<script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/advance-elements/select2-custom.js"></script>
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/switchery/js/switchery.min.js"></script>
+<script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/advance-elements/select2-custom.js"></script>
 <!-- <script type="text/javascript" src="< ?= assets_url() ?>admin/assets/pages/advance-elements/swithces.js"></script> -->
+
 <script type="text/javascript">
   var elemsingle = document.querySelector('.js-single');
   var switchery = new Switchery(elemsingle, {
@@ -81,21 +82,22 @@
         type: "post",
         url: "<?= admin_url() ?>/manajemen_user/get",
         data: {
-          id: ini.data('id_users'),
-          [csrfName]: csrfHash
+          id_users: ini.data('id_users'),
+          [csrfName]: csrfHash,
         },
         dataType: "json",
         success: function(data) {
           $('#_csrf_token').val(data.token);
 
-          $('form').attr('action', '<?= admin_url() ?>/manajemen_user/upd');
 
+
+          $('#id_users').val(data.id_users);
           $('#username').val(data.username);
           $('#nama_lengkap').val(data.nama);
           $('#user_profil').val(data.id_users_profil);
           $('#instansi').val(data.id_instansi);
           $('#jabatan').val(data.id_jabatan);
-
+          $('form').attr('action', '<?= admin_url() ?>/manajemen_user/upd');
 
         }
       });

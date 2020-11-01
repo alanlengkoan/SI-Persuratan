@@ -48,6 +48,7 @@
                                             <form action="<?= admin_url() ?>/manajemen_user/add" name="this_form" id="this_form" method="POST">
                                                 <!-- begin:: input hidden -->
                                                 <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="_csrf_token" value="<?= $this->security->get_csrf_hash() ?>">
+                                                <input type="hidden" name="id_users" id="id_users">
                                                 <!-- end:: input hidden -->
 
                                                 <div class="form-group row">
@@ -79,7 +80,7 @@
                                                         <select class="select2" name="instansi" id="instansi" style="width: 100%;">
                                                             <option value=""></option>
                                                             <?php foreach ($instansi as $dt) : ?>
-                                                                <option value="<?= $dt->id_instansi ?>"><?= $dt->nama ?></option>
+                                                                <option value="<?= $dt->kd ?>"><?= $dt->nama ?></option>
                                                             <?php endforeach ?>
                                                         </select>
                                                     </div>
@@ -90,7 +91,7 @@
                                                         <select class="select2" name="jabatan" id="jabatan" style="width: 100%;">
                                                             <option value=""></option>
                                                             <?php foreach ($jabatan as $dt) : ?>
-                                                                <option value="<?= $dt->id_jabatan ?>"><?= $dt->nama ?></option>
+                                                                <option value="<?= $dt->kd ?>"><?= $dt->nama ?></option>
                                                             <?php endforeach ?>
                                                         </select>
                                                     </div>
@@ -128,7 +129,7 @@
                                         </div>
                                         <div class="card-block">
                                             <div class="table-responsive dt-responsive">
-                                                <table id="dom-jqry" class="table table-striped table-bordered nowrap">
+                                                <table class="table table-striped table-bordered nowrap">
                                                     <thead>
                                                         <tr>
                                                             <th>Status</th>
@@ -147,7 +148,7 @@
                                                                     <input type="checkbox" id="update_status" class="js-single" <?= $dt->status_aktif == "1" ? 'checked' : false ?> data-status_aktif="<?= $dt->status_aktif ?>" data-id_users="<?= $dt->id_users ?>" />
                                                                 </td>
                                                                 <td align=" center">
-                                                                    <button class=" btn btn-primary btn-sm" id="upd" data-id_users="<?= $dt->id_users ?>"><i class="fa fa-edit"></i>&nbsp;Ubah</button>
+                                                                    <button class="btn btn-primary btn-sm" id="upd" data-id_users="<?= $dt->id_users ?>"><i class="fa fa-edit"></i>&nbsp;Ubah</button>
                                                                 </td>
                                                                 <td><?= $dt->username ?></td>
                                                                 <td><?= $dt->id_users_profil ?></td>

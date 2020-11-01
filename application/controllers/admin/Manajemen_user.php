@@ -36,7 +36,7 @@ class Manajemen_user extends MY_Controller
     {
         $post   = $this->input->post(NULL, TRUE);
 
-        $result = $this->crud->gda('users', ['id_users', $post['id']]);
+        $result = $this->crud->gda('users', ['id_users', $post['id_users']]);
         // debug($result);
         $data = [
             'id_users'        => $result['id_users'],
