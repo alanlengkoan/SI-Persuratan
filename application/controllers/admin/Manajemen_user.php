@@ -34,19 +34,19 @@ class Manajemen_user extends MY_Controller
     public function get()
     {
         $post   = $this->input->post(NULL, TRUE);
-        $result = $this->crud->gda('users', ['id_users' => $post['id_users']]);
-        
-        $data = [
-            'id_users'        => $result['id_users'],
-            'id_users_profil' => $result['id_users_profil'],
-            'id_instansi'     => $result['id_instansi'],
-            'id_jabatan'      => $result['id_jabatan'],
-            'nama'            => $result['nama'],
-            'username'        => $result['username'],
-            'token'           => $this->security->get_csrf_hash(),
-        ];
+        $result = $this->m_manajemen_user->GetDataJoinUsers($post['id_users']);
 
-        $this->_response($data);
+        // $data = [
+        //     'id_users'        => $result['id_users'],
+        //     'id_users_profil' => $result['id_users_profil'],
+        //     'id_instansi'     => $result['id_instansi'],
+        //     'id_jabatan'      => $result['id_jabatan'],
+        //     'nama'            => $result['nama'],
+        //     'username'        => $result['username'],
+        //     'token'           => $this->security->get_csrf_hash(),
+        // ];
+        debug($result);
+        $this->_response($result);
     }
 
     // untuk simpan data
@@ -82,7 +82,7 @@ class Manajemen_user extends MY_Controller
     public function upd()
     {
         $post   = $this->input->post(NULL, TRUE);
-        debug($post);
+        // debug($post);
         $data = [
             'username'          => $post['username'],
             'nama'              => $post['nama_lengkap'],
