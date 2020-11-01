@@ -31,7 +31,6 @@ class Manajemen_user extends MY_Controller
         $this->load->view('admin/base', $data);
     }
 
-
     public function get()
     {
         $post   = $this->input->post(NULL, TRUE);
@@ -77,6 +76,7 @@ class Manajemen_user extends MY_Controller
         // untuk reponse
         $this->_response($response);
     }
+
     // untuk update data
     public function upd()
     {
@@ -112,7 +112,6 @@ class Manajemen_user extends MY_Controller
         $post = $this->input->post(NULL, TRUE);
         $data = array(
             'status_aktif' => $post['status_aktif'],
-
         );
         $this->db->trans_start();
         $this->crud->u('users', $data, ['id_users' => $post['id_users']]);
@@ -121,7 +120,7 @@ class Manajemen_user extends MY_Controller
         if ($this->db->trans_status() === FALSE) {
             $response = ['title' => 'Gagal!', 'text' => 'Gagal Update!', 'type' => 'error', 'button' => 'Ok!'];
         } else {
-            $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Update!', 'type' => 'success', 'button' => 'Ok!'];
+            $response = ['title' => 'Berhasil!', 'text' => 'Berhasil Update!', 'type' => 'success', 'button' => 'Ok!', 'token' => $this->security->get_csrf_hash()];
         }
 
         // untuk reponse

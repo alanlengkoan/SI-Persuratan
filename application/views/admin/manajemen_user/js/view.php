@@ -4,21 +4,24 @@
 <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/advance-elements/select2-custom.js"></script>
 <!-- <script type="text/javascript" src="< ?= assets_url() ?>admin/assets/pages/advance-elements/swithces.js"></script> -->
 
-<script type="text/javascript">
-  var elemsingle = document.querySelector('.js-single');
-  var switchery = new Switchery(elemsingle, {
-    color: '#4099ff',
-    jackColor: '#fff'
-  });
-</script>
 <script>
+  var elemsingle = document.querySelectorAll('.js-single');
+  for (var i = 0; i < elemsingle.length; i++) {
+    var switchery = new Switchery(elemsingle[i], {
+      color: '#4099ff',
+      jackColor: '#fff'
+    });
+  }
+
   $(document).ready(function() {
     $('#user_profil').select2({
       placeholder: "Pilih User",
     });
+
     $('#instansi').select2({
       placeholder: "Pilih Instansi",
     });
+
     $('#jabatan').select2({
       placeholder: "Pilih Jabatan",
     });
@@ -111,16 +114,19 @@
       var status = (status_aktif == 0 ? '1' : '0');
       var csrfName = $('#_csrf_token').attr('name');
       var csrfHash = $('#_csrf_token').val();
+
       $.ajax({
         type: "post",
         url: "<?= admin_url() ?>/manajemen_user/updStatusAktif",
+        dataType: "json",
         data: {
           'status_aktif': status,
           'id_users': id_users,
           [csrfName]: csrfHash,
         },
-        dataType: "json",
         success: function(data) {
+          $('#_csrf_token').val(data.token);
+
           swal({
             title: data.title,
             text: data.text,
