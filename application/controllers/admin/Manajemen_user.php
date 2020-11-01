@@ -36,16 +36,6 @@ class Manajemen_user extends MY_Controller
         $post   = $this->input->post(NULL, TRUE);
         $result = $this->m_manajemen_user->GetDataJoinUsers($post['id_users']);
 
-        // $data = [
-        //     'id_users'        => $result['id_users'],
-        //     'id_users_profil' => $result['id_users_profil'],
-        //     'id_instansi'     => $result['id_instansi'],
-        //     'id_jabatan'      => $result['id_jabatan'],
-        //     'nama'            => $result['nama'],
-        //     'username'        => $result['username'],
-        //     'token'           => $this->security->get_csrf_hash(),
-        // ];
-        debug($result);
         $this->_response($result);
     }
 

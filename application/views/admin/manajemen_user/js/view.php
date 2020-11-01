@@ -99,9 +99,11 @@
           $('#username').val(data.username);
           $('#nama_lengkap').val(data.nama);
           $('#user_profil').val(data.id_users_profil);
-          $('#select2-user_profil-container').html(data.nama);
+          $('#select2-user_profil-container').html(data.level);
           $('#instansi').val(data.id_instansi);
+          $('#select2-instansi-container').html(data.instansi);
           $('#jabatan').val(data.id_jabatan);
+          $('#select2-jabatan-container').html(data.jabatan);
 
         }
       });

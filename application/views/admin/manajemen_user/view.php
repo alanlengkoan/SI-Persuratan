@@ -80,7 +80,7 @@
                                                         <select class="select2" name="instansi" id="instansi" style="width: 100%;">
                                                             <option value=""></option>
                                                             <?php foreach ($instansi as $dt) : ?>
-                                                                <option value="<?= $dt->kd ?>"><?= $dt->nama ?></option>
+                                                                <option value="<?= $dt->id_instansi ?>"><?= $dt->nama ?></option>
                                                             <?php endforeach ?>
                                                         </select>
                                                     </div>
@@ -91,7 +91,7 @@
                                                         <select class="select2" name="jabatan" id="jabatan" style="width: 100%;">
                                                             <option value=""></option>
                                                             <?php foreach ($jabatan as $dt) : ?>
-                                                                <option value="<?= $dt->kd ?>"><?= $dt->nama ?></option>
+                                                                <option value="<?= $dt->id_jabatan ?>"><?= $dt->nama ?></option>
                                                             <?php endforeach ?>
                                                         </select>
                                                     </div>
