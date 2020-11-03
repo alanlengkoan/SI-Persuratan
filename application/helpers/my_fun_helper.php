@@ -543,4 +543,22 @@ if (!function_exists('breadcrumb')) {
         $cek = $ci->$database->get()->num_rows();
         return $cek;
     }
+
+    function open_parent($icon, $text_menu)
+    {
+        $html = '<li class="pcoded-hasmenu active pcoded-trigger"><a href="javascript:void(0)"> <span class="pcoded-micon"> <i class="' . $icon . '"></i> </span><span class="pcoded-mtext">' . $text_menu . '</span></a>
+        <ul class="pcoded-submenu">';
+        return $html;
+    }
+
+    function close_parent()
+    {
+        return "</ul></li>";
+    }
+
+    function _child($menu_akses, $text_menu, $id, $class, $url)
+    {
+        $html = in_array($id, $menu_akses) ? '<li class="' . $class . '"><a href="' . $url . '" class="waves-effect waves-dark"><span class="pcoded-mtext">' . $text_menu . '</span></a></li>' : null;
+        return $html;
+    }
 }

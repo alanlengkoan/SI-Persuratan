@@ -1,15 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dashboard extends MY_Controller
 {
     public function __construct()
-	{
+    {
         parent::__construct();
-
+        $this->load->model('crud');
         // untuk cek session
         checking_session($this->session->userdata());
-	}
+    }
 
     public function index()
     {

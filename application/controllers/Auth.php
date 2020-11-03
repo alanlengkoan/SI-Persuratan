@@ -55,6 +55,7 @@ class Auth extends CI_Controller
                     $data = [
                         'id'       => $row['id_users'],
                         'username' => $row['username'],
+                        'id_users_profil' => $row['id_users_profil'],
                         'password' => $password,
                     ];
 

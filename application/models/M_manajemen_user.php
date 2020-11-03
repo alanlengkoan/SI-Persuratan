@@ -5,8 +5,11 @@ class M_manajemen_user extends CI_Model
 
     public function GetAllDataUser()
     {
-        $this->db->select('*');
-        $this->db->from('users');
+        $this->db->select('us.id_users, us.status_aktif, us.id_users_profil, us.id_instansi, us.id_jabatan, us.nama as nama_user, us.username, jb.nama as nama_jabatan, ins.nama as nama_instansi, ul.level');
+        $this->db->from('users us');
+        $this->db->join('users_level ul', 'ul.id_users_level = us.id_users_profil', 'left');
+        $this->db->join('jabatan jb', 'jb.id_jabatan = us.id_jabatan', 'left');
+        $this->db->join('instansi ins', 'ins.id_instansi = us.id_instansi', 'left');
         $data = $this->db->get();
         return $data->result();
     }

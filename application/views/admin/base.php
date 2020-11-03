@@ -188,158 +188,26 @@
                             </div>
                             <div class="pcoded-navigation-label">Navigation</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="pcoded-hasmenu active pcoded-trigger">
-                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                        <span class="pcoded-mtext">Master</span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class="active">
-                                            <a href="<?= admin_url() ?>" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Default</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="dashboard-ecommerce.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Ecommerce</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="dashboard-crm.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">CRM</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Analytics</span>
-                                                <span class="pcoded-badge label label-info ">NEW</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="dashboard-project.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Project</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                        <span class="pcoded-mtext">Page layouts</span>
-                                        <span class="pcoded-badge label label-warning">NEW</span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class=" pcoded-hasmenu">
-                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Vertical</span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class="">
-                                                    <a href="menu-static.html" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Static Layout</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="menu-header-fixed.html" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Header Fixed</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="menu-compact.html" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Compact</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="menu-sidebar.html" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Sidebar Fixed</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class=" pcoded-hasmenu">
-                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Horizontal</span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class="">
-                                                    <a href="menu-horizontal-static.html" target="_blank" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Static Layout</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="menu-horizontal-fixed.html" target="_blank" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Fixed layout</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="menu-horizontal-icon.html" target="_blank" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Static With Icon</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="menu-horizontal-icon-fixed.html" target="_blank" class="waves-effect waves-dark">
-                                                        <span class="pcoded-mtext">Fixed With Icon</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="">
-                                            <a href="menu-bottom.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Bottom Menu</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="box-layout.html" target="_blank" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Box Layout</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="menu-rtl.html" target="_blank" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">RTL</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="">
-                                    <a href="navbar-light.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon">
-                                            <i class="feather icon-menu"></i>
-                                        </span>
-                                        <span class="pcoded-mtext">Navigation</span>
-                                    </a>
-                                </li>
-                                <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon">
-                                            <i class="feather icon-layers"></i>
-                                        </span>
-                                        <span class="pcoded-mtext">Widget</span>
-                                        <span class="pcoded-badge label label-danger">100+</span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class="">
-                                            <a href="widget-statistic.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Statistic</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="widget-data.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Data</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="widget-chart.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Chart Widget</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="widget-chart-advance.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-mtext">Advance Widgets</span>
-                                                <span class="pcoded-badge label label-info">25+</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <?php
+                                $akses = $this->crud->menu();
+                                $menu_akses = explode(",", $akses);
+
+                                //Menu Manajemen Aplikasi
+                                echo open_parent("feather icon-home", "Manajemen Sistem");
+                                echo _child($menu_akses, 'Konfigurasi User', 'konfigurasi_user', (($this->uri->segment('2') == 'manajemen_user') ? 'active' : ''), '' . admin_url() . '/manajemen_user');
+                                echo _child($menu_akses, 'User Profil', 'user_profil', (($this->uri->segment('2') == 'profil_user') ? 'active' : ''), '' . admin_url() . '/profil_user');
+                                echo close_parent();
+
+                                //Menu Master
+                                echo open_parent("feather icon-home", "Master Sistem");
+                                echo _child($menu_akses, 'Instansi', 'instansi', (($this->uri->segment('1') == 'admin') ? 'active' : ''), '' . admin_url() . '');
+                                echo _child($menu_akses, 'Golongan', 'golongan', (($this->uri->segment('1') == 'admin') ? 'active' : ''), '' . admin_url() . '');
+                                echo _child($menu_akses, 'Jabatan', 'jabatan', (($this->uri->segment('1') == 'admin') ? 'active' : ''), '' . admin_url() . '');
+                                echo _child($menu_akses, 'Sifat', 'sifat', (($this->uri->segment('1') == 'admin') ? 'active' : ''), '' . admin_url() . '');
+                                echo _child($menu_akses, 'Tujuan', 'tujuan', (($this->uri->segment('1') == 'admin') ? 'active' : ''), '' . admin_url() . '');
+                                echo _child($menu_akses, 'Asal', 'asal', (($this->uri->segment('1') == 'admin') ? 'active' : ''), '' . admin_url() . '');
+                                echo close_parent();
+                                ?>
                             </ul>
                         </div>
                     </nav>

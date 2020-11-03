@@ -29,50 +29,55 @@
 
   var UntukTambahDanUbahData = function() {
 
-    //   var parsleyConfig = {
-    //       errorsContainer: function(parsleyField) {
-    //           var $err = parsleyField.$element.siblings('#error');
-    //           return $err;
-    //       }
-    //   }
+    var parsleyConfig = {
+      errorsContainer: function(parsleyField) {
+        var $err = parsleyField.$element.siblings('#error');
+        return $err;
+      }
+    }
 
-    //   $('#this_form').parsley(parsleyConfig);
+    $('#this_form').parsley(parsleyConfig);
 
 
-    // $('#level').attr('required', 'required');
-    // $('#deskripsi').attr('required', 'required');
-    // $('#akses_menu').attr('required', 'required');
+    $('#username').attr('required', 'required');
+    $('#nama_lengkap').attr('required', 'required');
+    $('#user_profil').attr('required', 'required');
+    $('#instansi').attr('required', 'required');
+    $('#jabatan').attr('required', 'required');
+    $('#password').attr('required', 'required');
+    $('#repeat_password').attr('required', 'required');
 
-    //   if ($('#this_form').parsley().isValid() == true) {
-    $(document).on("submit", "#this_form", function(e) {
-      e.preventDefault();
 
-      $.ajax({
-        method: $(this).attr('method'),
-        url: $(this).attr('action'),
-        data: new FormData(this),
-        processData: false,
-        contentType: false,
-        dataType: 'json',
-        beforeSend: function() {
-          $('#add').attr('disabled', 'disabled');
-          $('#add').html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
-        },
-        success: function(data) {
-          swal({
-              title: data.title,
-              text: data.text,
-              icon: data.type,
-              button: data.button,
-            })
-            .then((value) => {
-              location.reload();
-            });
-        }
+    if ($('#this_form').parsley().isValid() == true) {
+      $(document).on("submit", "#this_form", function(e) {
+        e.preventDefault();
+
+        $.ajax({
+          method: $(this).attr('method'),
+          url: $(this).attr('action'),
+          data: new FormData(this),
+          processData: false,
+          contentType: false,
+          dataType: 'json',
+          beforeSend: function() {
+            $('#add').attr('disabled', 'disabled');
+            $('#add').html('<i class="fa fa-spinner"></i>&nbsp;Menunggu...');
+          },
+          success: function(data) {
+            swal({
+                title: data.title,
+                text: data.text,
+                icon: data.type,
+                button: data.button,
+              })
+              .then((value) => {
+                location.reload();
+              });
+          }
+        });
+
       });
-
-    });
-    //   }
+    }
   }();
 
   var UntukGetDataByID = function() {
@@ -131,11 +136,14 @@
           $('#_csrf_token').val(data.token);
 
           swal({
-            title: data.title,
-            text: data.text,
-            icon: data.type,
-            button: data.button,
-          })
+              title: data.title,
+              text: data.text,
+              icon: data.type,
+              button: data.button,
+            })
+            .then((value) => {
+              location.reload();
+            });
         }
       });
     });

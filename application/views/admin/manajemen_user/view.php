@@ -151,10 +151,10 @@
                                                                     <button class="btn btn-primary btn-sm" id="upd" data-id_users="<?= $dt->id_users ?>"><i class="fa fa-edit"></i>&nbsp;Ubah</button>
                                                                 </td>
                                                                 <td><?= $dt->username ?></td>
-                                                                <td><?= $dt->id_users_profil ?></td>
-                                                                <td><?= $dt->nama ?></td>
-                                                                <td><?= $dt->id_jabatan ?></td>
-                                                                <td><?= $dt->id_instansi ?></td>
+                                                                <td><?= $dt->level ?></td>
+                                                                <td><?= $dt->nama_user ?></td>
+                                                                <td><?= $dt->nama_jabatan ?></td>
+                                                                <td><?= $dt->nama_instansi ?></td>
                                                             </tr>
                                                         <?php } ?>
                                                     </tbody>
