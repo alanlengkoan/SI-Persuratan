@@ -4,7 +4,7 @@
   <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/jquery.quicksearch.js"></script>
   <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/advance-elements/select2-custom.js"></script>
   <script type="text/javascript" src="<?= assets_url() ?>admin/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
   <script type="text/javascript">
       $('#m_a').jstree({
           "checkbox": {

@@ -186,7 +186,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="pcoded-navigation-label">Navigation</div>
+                            <!-- <div class="pcoded-navigation-label">Navigation</div> -->
                             <ul class="pcoded-item pcoded-left-item">
                                 <?php
                                 $akses = $this->crud->menu();

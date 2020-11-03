@@ -44,8 +44,8 @@
                                             </div>
                                         </div>
 
-                                        <button id="add" class="btn btn-sm btn-primary m-b-0">
-                                            <i class="fa fa-plus"></i> Submit
+                                        <button id="add" class="btn btn-sm btn-success m-b-0">
+                                            <i class="fa fa-save"></i> Simpan
                                         </button>
                                     </form>
 

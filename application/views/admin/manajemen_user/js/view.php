@@ -2,6 +2,7 @@
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/multiselect/js/jquery.multi-select.js"></script>
 <script type="text/javascript" src="<?= assets_url() ?>admin/bower_components/switchery/js/switchery.min.js"></script>
 <script type="text/javascript" src="<?= assets_url() ?>admin/assets/pages/advance-elements/select2-custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
 <!-- <script type="text/javascript" src="< ?= assets_url() ?>admin/assets/pages/advance-elements/swithces.js"></script> -->
 
 <script>
